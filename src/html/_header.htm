@@ -5,6 +5,9 @@
 	<title>@@title</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 	<!-- <style>body{opacity: 0;}</style> -->
 	<link rel="stylesheet" href="css/style.min.css">
 	<link rel="shortcut icon" href="favicon.ico">
@@ -14,7 +17,45 @@
 
 <body>
 	<div class="wrapper @@modClass">
-		<header class="header">
+		<header class="header" data-scroll="200">
 			<div class="header__container">
+				<a href="" class="header__logo">
+					<svg class="header__logo-main">
+						<use xlink:href="img/icons/icons.svg#logo-main"></use>
+					</svg>
+					<svg class="header__logo-inner">
+						<use xlink:href="img/icons/icons.svg#logo-inner"></use>
+					</svg>
+				</a>
+				<div class="header__menu menu">
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<div class="dropdown" data-dropdown>
+									<a href="" class="menu__link dropdown__button" data-dropdown-button>Инфо</a>
+									<div class="dropdown__block">
+										<div class="dropdown__links">
+											<a href="" class="menu__link dropdown__link">Институт</a>
+											<a href="" class="menu__link dropdown__link">Структура института</a>
+											<a href="" class="menu__link dropdown__link">Руководство</a>
+											<a href="" class="menu__link dropdown__link">Новости</a>
+											<a href="" class="menu__link dropdown__link">Партнеры</a>
+											<a href="" class="menu__link dropdown__link">Пресс-центр</a>
+											<a href="" class="menu__link dropdown__link">Сведения</a>
+											<a href="" class="menu__link dropdown__link">Публичные слушания</a>
+											<a href="" class="menu__link dropdown__link">Вакансии</a>
+											<a href="" class="menu__link dropdown__link">Документы</a>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="menu__item"><a href="" class="menu__link">Проекты</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Услуги</a></li>
+							<li class="menu__item"><a href="" class="menu__link">Контакты</a></li>
+						</ul>
+					</nav>
+				</div>
+				<a href="" class="header__lang" data-da=".menu__body, 991.98, first">En</a>
 			</div>
 		</header>
+		@@include('./_right-sidebar.htm',{})

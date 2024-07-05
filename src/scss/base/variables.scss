@@ -3,4 +3,23 @@
 // ===============
 :root {
 	--red-error: #ca2e33; // цвет ошибки в формах
+	--mp-right-padding: 320px;
+	--right-padding: 160px;
+	--frist-block-height: 870px;
+
+	@media (max-width:$xpc) {
+		--mp-right-padding: 214px;
+		--right-padding: 107px;
+		--frist-block-height: 684px;
+	}
+
+	@media (max-width:$xl) {
+		--mp-right-padding: 167px;
+		--right-padding: 84px;
+	}
+
+	@media (max-width:$lg) {
+		--mp-right-padding: 0px;
+		--right-padding: 0px;
+	}
 }

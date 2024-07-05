@@ -1,5 +1,6 @@
 .swiper {
 	overflow: hidden;
+	min-width: 0;
 }
 
 .swiper-initialized {
@@ -43,4 +44,19 @@
 
 .swiper-button-lock {
 	display: none !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	outline: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 93px;
+	width: 80px;
+
+	svg {
+		width: 17px;
+		height: 27px;
+	}
 }

@@ -93,6 +93,7 @@ export function headerScroll() {
 		clearTimeout(timer);
 		if (scrollTop >= startPoint) {
 			!header.classList.contains('_header-scroll') ? header.classList.add('_header-scroll') : null;
+			!document.body.classList.contains('_page-scroll') ? document.body.classList.add('_page-scroll') : null;
 			if (headerShow) {
 				if (scrollTop > scrollDirection) {
 					// downscroll code
@@ -107,6 +108,7 @@ export function headerScroll() {
 			}
 		} else {
 			header.classList.contains('_header-scroll') ? header.classList.remove('_header-scroll') : null;
+			document.body.classList.contains('_page-scroll') ? document.body.classList.remove('_page-scroll') : null;
 			if (headerShow) {
 				header.classList.contains('_header-show') ? header.classList.remove('_header-show') : null;
 			}

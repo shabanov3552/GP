@@ -1,4 +1,128 @@
 //====================================================================================================
+.footer {
+   background: #000;
+   color: #fff;
+   padding-top: rem(94);
+   padding-bottom: rem(52);
+
+   @media (max-width:$lg) {
+      padding: rem(34) 0;
+   }
+
+   // .footer__container
+
+   &__container {}
+
+   // .footer__top
+
+   &__top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 80px;
+      margin-bottom: rem(94);
+
+      @media (max-width:$xl) {
+         gap: 34px;
+         margin-bottom: rem(59);
+      }
+
+      @media (max-width:$lg) {
+         grid-template-columns: 1fr;
+         gap: 48px;
+      }
+   }
+
+   // .footer__menu
+
+   &__menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 27px 42px;
+
+      @media (max-width:$md) {
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         gap: 12px;
+      }
+
+      @media (max-width:$sm) {
+         display: flex;
+         flex-direction: column;
+      }
+   }
+
+   // .footer__link
+
+   &__link {
+      font-weight: 500;
+      font-size: 20px;
+      color: #fff;
+
+      @media (max-width:$lg) {
+         font-size: 18px;
+      }
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+
+   // .footer__portfolio
+
+   &__portfolio {
+      font-weight: 500;
+      font-size: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 13px;
+
+      @media (max-width:$lg) {
+         font-size: 17px;
+      }
+
+      @media (max-width:$lg) {
+         grid-row: 1/2;
+      }
+
+      img {
+         width: 20px;
+         height: 20px;
+         flex: 0 0 20px;
+      }
+   }
+
+   // .footer__contacts
+
+   &__contacts {
+      margin-bottom: rem(94);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px 82px;
+
+      @media (max-width:$xl) {
+         gap: 25px 54px;
+         margin-bottom: rem(60);
+      }
+   }
+
+   // .footer__contact
+
+   &__contact {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 110%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+   }
+
+   // .footer__bottom
+
+   &__bottom {}
+}
 
 //====================================================================================================
 .copyright {
@@ -11,55 +135,51 @@
 
    &__body {
       display: grid;
-      grid-template-columns: repeat(2, auto) 1fr auto;
-      column-gap: 50px;
-      row-gap: 8px;
+      grid-template-columns: 1fr auto;
+      gap: 92px;
       justify-items: start;
+      align-items: start;
 
-      @media (max-width:$xl) and (min-width:$lg) {
-         grid-template-columns: auto 1fr auto;
-      }
+      // @media (max-width:$xl) and (min-width:$lg) {
+      //    grid-template-columns: auto 1fr auto;
+      // }
 
-      @media (max-width:$lg) {
-         grid-template-columns: repeat(2, 1fr);
-         justify-items: center;
+      // @media (max-width:$lg) {
+      //    grid-template-columns: repeat(2, 1fr);
+      //    justify-items: center;
+      // }
+      @media (max-width:$xl) {
+         gap: 62px;
       }
 
       @media (max-width:$md) {
          grid-template-columns: 1fr;
+      }
+
+      @media (max-width:$md) {
+         gap: 30px;
       }
    }
 
    // .copyright__item
 
    &__item {
-      font-size: 14px;
+      font-size: 18px;
       line-height: 22px;
 
-      @media (min-width:$lg) {}
-
-      @media (max-width:$xl) and (min-width:$lg) {
-
-         &:nth-child(3) {
-            grid-row: 2/3;
-            grid-column: 2/3;
-         }
-      }
-
-      @media (max-width:$lg) {
-         text-align: center;
+      &:first-child {
+         text-align: right;
       }
 
       &:last-child {
          display: flex;
          align-items: center;
          gap: 7px;
-         color: #757575;
 
-         @media (max-width:$xl) and (min-width:$lg) {
-            grid-row: 2/3;
-            grid-column: 3/4;
-         }
+         // @media (max-width:$xl) and (min-width:$lg) {
+         //    grid-row: 2/3;
+         //    grid-column: 3/4;
+         // }
       }
    }
 
@@ -68,5 +188,9 @@
    &__svg {
       width: 75px;
       height: 13px;
+
+      use {
+         fill: #fff;
+      }
    }
 }

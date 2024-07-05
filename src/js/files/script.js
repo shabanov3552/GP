@@ -457,3 +457,32 @@ function dropdownAction(e, ddWrapper, ddActive) {
 }
 
 //#endregion
+
+//#region Адаптивная высота строки заголовка деталки проекта
+
+function getHeightLine() {
+   const pageTitle = document.querySelector('.project-headline__title');
+   const pageHeadline = document.querySelector('.project-headline');
+   if (pageTitle === null) return
+
+   let cloneTitle = pageTitle.cloneNode(true);
+   cloneTitle.classList.add('project-headline__title_clone');
+   cloneTitle.querySelector('span').innerHTML = 'A <br> B <br> C'
+   pageTitle.after(cloneTitle);
+
+   window.addEventListener('load', () => { compareHeightLine(pageTitle, cloneTitle, pageHeadline); });
+   window.addEventListener('resize', () => {
+      compareHeightLine(pageTitle, cloneTitle, pageHeadline);
+   });
+}
+getHeightLine();
+
+function compareHeightLine(origEl, cloneEl, parentEl) {
+   if (origEl.offsetHeight > cloneEl.offsetHeight) {
+      parentEl.style.height = 'auto';
+   } else {
+      parentEl.style.height = null;
+   }
+}
+
+//#endregion

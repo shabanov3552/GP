@@ -1,0 +1,62 @@
+@@include('html/_header.htm',{
+"title":"Проекты",
+"modClass":""
+})
+<main class="page">
+   <div class="page-headline">
+      @@include('html/_breadcrumbs.htm',{})
+      <div class="page-headline__row">
+         <h1 class="page-headline__title">Проекты</h1>
+         <a href="" class="page-headline__link">
+            <img src="@img/icons/portfolio.svg" alt="">
+            <span>Скачать портфолио.pdf</span>
+         </a>
+      </div>
+   </div>
+   <div class="categories-block">
+      <div class="categories-block__container">
+         <div class="categories-block__grid">
+            <a href="" class="categories-block__link _active">Все</a>
+            <a href="" class="categories-block__link">Образовательные учреждения</a>
+            <a href="" class="categories-block__link">Общественные здания</a>
+            <a href="" class="categories-block__link">Оздоровительные учреждения</a>
+            <a href="" class="categories-block__link">Жилые дома</a>
+            <a href="" class="categories-block__link">Спортивные сооружения</a>
+            <a href="" class="categories-block__link">Коммунальная инфраструктура</a>
+            <a href="" class="categories-block__link">Генеральные планы и проекты планировок</a>
+         </div>
+      </div>
+   </div>
+   <div class="projects-main">
+      <div class="projects-main__container">
+         <div class="projects-main__grid">
+            <div class="projects-main__card">
+               <div class="projects-main__image-ibg"><img src="@img/proj-det-1.png" alt=""></div>
+               <a href="" class="projects-main__name">Набережная р. Енисей им. И. Ярыгина</a>
+               <div class="projects-main__date">24.01.2020</div>
+               <div class="projects-main__descr">Генеральные планы и проекты планировок</div>
+            </div>
+            <div class="projects-main__card">
+               <div class="projects-main__image-ibg"><img src="@img/proj-det-2.png" alt=""></div>
+               <a href="" class="projects-main__name">Благоустройство острова Татышев</a>
+               <div class="projects-main__date">24.01.2020</div>
+               <div class="projects-main__descr">Генеральные планы и проекты планировок</div>
+            </div>
+            <div class="projects-main__card">
+               <div class="projects-main__image-ibg"><img src="@img/proj-det-3.png" alt=""></div>
+               <a href="" class="projects-main__name">Мариинская женская гимназия</a>
+               <div class="projects-main__date">24.01.2020</div>
+               <div class="projects-main__descr">Образовательные учреждения</div>
+            </div>
+            <div class="projects-main__card">
+               <div class="projects-main__image-ibg"><img src="@img/proj-det-4.png" alt=""></div>
+               <a href="" class="projects-main__name">Многофункциональный спортивный центр</a>
+               <div class="projects-main__date">24.01.2020</div>
+               <div class="projects-main__descr">Спортивные сооружения</div>
+            </div>
+         </div>
+         @@include('html/_pagging.htm',{})
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})
