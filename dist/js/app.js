@@ -7080,6 +7080,18 @@
             let productFavorTippy = new CustomTippy(document.querySelector(".product__btn-favorites"), "избранное", "избранного");
             productFavorTippy.initTippy();
         }
+        const pointTippy = document.querySelectorAll(".projects-map__point");
+        pointTippy.forEach((e => {
+            const node = e.querySelector(".pm-tippy");
+            node.style.display = "block";
+            e = tippy_esm(e, {
+                interactive: true,
+                content: node,
+                allowHTML: true,
+                theme: "light",
+                placement: "bottom-start"
+            });
+        }));
         function ssr_window_esm_isObject(obj) {
             return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
@@ -12294,10 +12306,6 @@ PERFORMANCE OF THIS SOFTWARE.
                 bodyLockToggle();
                 document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
             }
-            if (!e.target.closest(".sidebar-catalog") && document.querySelector(".sidebar-catalog-open") && !e.target.closest(".js-open-sidebar-catalog")) {
-                bodyLockToggle();
-                document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
-            }
             if (e.target.closest(".form__clear-svg")) {
                 let input = e.target.closest(".form__line").querySelector(".form__input") || e.target.closest(".form__line").querySelector(".form__txt");
                 input.value = "";
@@ -12587,6 +12595,30 @@ PERFORMANCE OF THIS SOFTWARE.
         function compareHeightLine(origEl, cloneEl, parentEl) {
             if (origEl.offsetHeight > cloneEl.offsetHeight) parentEl.style.height = "auto"; else parentEl.style.height = null;
         }
+        const projectMaps = document.querySelectorAll(".projects-map__body");
+        projectMaps.forEach((mapBody => {
+            mapBody.ondragstart = function() {
+                return false;
+            };
+            mapBody.addEventListener("mousedown", (event => {
+                let shiftX = event.clientX - mapBody.getBoundingClientRect().left;
+                let shiftY = event.clientY - mapBody.getBoundingClientRect().top;
+                mapBody.style.position = "absolute";
+                moveAt(event.pageX, event.pageY);
+                function moveAt(pageX, pageY) {
+                    mapBody.style.left = pageX - shiftX + "px";
+                    mapBody.style.top = pageY - shiftY + "px";
+                }
+                function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                }
+                document.addEventListener("mousemove", onMouseMove);
+                mapBody.onmouseup = function() {
+                    document.removeEventListener("mousemove", onMouseMove);
+                    mapBody.onmouseup = null;
+                };
+            }));
+        }));
         window["FLS"] = true;
         isWebp();
         menuInit();

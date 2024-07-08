@@ -848,3 +848,42 @@
       }
    }
 }
+
+.pm-tippy {
+
+   // .pm-tippy__grid
+
+   &__grid {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 14px;
+      padding: rem(7);
+
+      img {
+         max-width: 100%;
+         border-radius: 7px;
+      }
+   }
+
+   // .pm-tippy__content
+
+   &__content {}
+
+   // .pm-tippy__city
+
+   &__city {
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 160%;
+      color: #000;
+   }
+
+   // .pm-tippy__count
+
+   &__count {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 133%;
+      color: #000;
+   }
+}

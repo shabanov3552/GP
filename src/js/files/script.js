@@ -23,10 +23,10 @@ document.addEventListener("click", function (e) {
       bodyLockToggle();
       document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
    }
-   if (!e.target.closest('.sidebar-catalog') && document.querySelector('.sidebar-catalog-open') && !e.target.closest('.js-open-sidebar-catalog')) {
-      bodyLockToggle();
-      document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
-   }
+   // if (!e.target.closest('.projects-map') && document.querySelector('.sidebar-catalog-open') && !e.target.closest('.js-open-sidebar-catalog')) {
+   //    bodyLockToggle();
+   //    document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
+   // }
    // очистка input по клику на крестик
    if (e.target.closest('.form__clear-svg')) {
       let input = e.target.closest('.form__line').querySelector('.form__input') || e.target.closest('.form__line').querySelector('.form__txt');
@@ -484,5 +484,49 @@ function compareHeightLine(origEl, cloneEl, parentEl) {
       parentEl.style.height = null;
    }
 }
+
+//#endregion
+
+//#region Карта проектов перетаскивание
+const projectMaps = document.querySelectorAll('.projects-map__body');
+projectMaps.forEach((mapBody) => {
+
+   mapBody.ondragstart = function () {
+      return false;
+   };
+
+   mapBody.addEventListener('mousedown', (event) => {
+      let shiftX = event.clientX - mapBody.getBoundingClientRect().left;
+      let shiftY = event.clientY - mapBody.getBoundingClientRect().top;
+
+      mapBody.style.position = 'absolute';
+      // mapBody.style.zIndex = 1000;
+      // document.body.append(mapBody);
+
+      moveAt(event.pageX, event.pageY);
+
+      // переносит мяч на координаты (pageX, pageY),
+      // дополнительно учитывая изначальный сдвиг относительно указателя мыши
+      function moveAt(pageX, pageY) {
+         mapBody.style.left = pageX - shiftX + 'px';
+         mapBody.style.top = pageY - shiftY + 'px';
+      }
+
+      function onMouseMove(event) {
+         moveAt(event.pageX, event.pageY);
+      }
+
+      // передвигаем мяч при событии mousemove
+      document.addEventListener('mousemove', onMouseMove);
+
+      // отпустить мяч, удалить ненужные обработчики
+      mapBody.onmouseup = function () {
+         document.removeEventListener('mousemove', onMouseMove);
+         mapBody.onmouseup = null;
+      };
+   });
+})
+
+
 
 //#endregion

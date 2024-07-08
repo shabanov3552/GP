@@ -647,7 +647,8 @@ body::after {
   width: 100%;
   height: 100%
 }
-.popup_show .popup__content {
+.popup_show .popup__content,
+.sidebar-catalog-open .popup__content {
   visibility: visible;
   -webkit-transform: translate(0,0);
   -ms-transform: translate(0,0);
@@ -750,8 +751,18 @@ body::after {
 .projects-map .popup__content {
   max-width: 100%
 }
+.popup__subtitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #000;
+  margin-top: .625rem
+}
 #share-popup .popup__main {
   height: auto
+}
+.project-list .popup__main {
+  height: calc(100% - 200px)
 }
 .share__social {
   margin-bottom: 2.5rem
@@ -1435,6 +1446,30 @@ body::after {
   background: #14325a;
   color: #fff
 }
+.pm-tippy__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 34px 1fr;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  padding: .4375rem
+}
+.pm-tippy__grid img {
+  max-width: 100%;
+  border-radius: 7px
+}
+.pm-tippy__city {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  color: #000
+}
+.pm-tippy__count {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #000
+}
 .header {
   padding: 2.1875rem 0;
   position: absolute;
@@ -1846,6 +1881,11 @@ body::after {
   bottom: 0;
   right: 0
 }
+.sidebar-catalog-open .projects-map {
+  z-index: 1500;
+  visibility: visible;
+  pointer-events: auto
+}
 .projects-map__wrapper {
   background: #032655;
   height: 100%;
@@ -1854,7 +1894,8 @@ body::after {
 .projects-map__logo {
   position: absolute;
   top: 46px;
-  left: 49px
+  left: 49px;
+  z-index: 2
 }
 .projects-map__logo-main {
   width: 453px;
@@ -1868,7 +1909,8 @@ body::after {
   top: 54px;
   right: 47px;
   width: 28px;
-  height: 28px
+  height: 28px;
+  z-index: 2
 }
 .projects-map__close-svg {
   width: 100%;
@@ -1894,22 +1936,50 @@ body::after {
   height: 100%;
   width: 100%
 }
+.projects-map__points .pm-tippy {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 133%;
+  color: #1f60b8
+}
 .projects-map__point {
+  width: 21px;
+  height: 21px;
+  display: inline-block;
+  position: absolute;
+  z-index: 2;
+  cursor: pointer
+}
+.projects-map__point::before {
+  content: "";
+  -webkit-transition: all .3s ease 0s;
+  transition: all .3s ease 0s;
   border-radius: 12px;
-  width: 11px;
-  height: 11px;
   -webkit-box-shadow: 0 3px 22px 10px rgba(51,187,219,.54),0 0 6px 4px rgba(51,201,219,.52);
   box-shadow: 0 3px 22px 10px rgba(51,187,219,.54),0 0 6px 4px rgba(51,201,219,.52);
   background: #fff;
-  display: inline-block;
   position: absolute;
-  -webkit-transition: all .3s ease 0s;
-  transition: all .3s ease 0s;
-  z-index: 2
+  top: 50%;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
 }
-.projects-map__point:hover {
+.projects-map__point:hover::before {
   -webkit-box-shadow: 0 3px 22px 10px rgba(219,51,51,.54),0 0 6px 4px rgba(219,51,51,.52);
   box-shadow: 0 3px 22px 10px rgba(219,51,51,.54),0 0 6px 4px rgba(219,51,51,.52)
+}
+.projects-map__point-city {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #fff;
+  text-shadow: 0 4px 12px 0 #000,0 0 0 0 #fff;
+  position: absolute;
+  top: 4px;
+  left: 100%
 }
 .projects-map__navigation {
   position: absolute;
@@ -1933,10 +2003,69 @@ body::after {
 .projects-map__title {
   font-weight: 500;
   font-size: 20px;
-  color: #8abdff
+  color: #8abdff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40px 1fr;
+  grid-template-columns: 40px 1fr;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 20px;
+  text-align: left
+}
+.projects-map__title img {
+  -ms-grid-column-align: center;
+  justify-self: center;
+  max-width: 100%
 }
 .projects-map__title._tab-active {
   color: #fff
+}
+.project-list__grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 40px;
+  grid-template-rows: 1fr 40px;
+  height: 100%;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start
+}
+.project-list__links {
+  display: -ms-grid;
+  display: grid;
+  gap: 30px
+}
+.project-list__link {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  color: #1f60b8
+}
+.project-list__all {
+  font-weight: 600;
+  font-size: 20px;
+  color: #1f60b8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 17px;
+  position: absolute;
+  bottom: 34px;
+  padding-top: 15px;
+  background: #fff;
+  width: 100%
+}
+.project-list__all svg {
+  width: 24px;
+  height: 12px
+}
+.project-list__all svg use {
+  fill: #1f60b8
 }
 .mp-frist-block {
   height: var(--frist-block-height);
@@ -2396,6 +2525,30 @@ body::after {
   position: relative;
   padding: 5px 9px;
   z-index: 1
+}
+.tippy-box[data-theme~=light] {
+  color: #26323d;
+  -webkit-box-shadow: 0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15);
+  box-shadow: 0 0 20px 4px rgba(154,161,177,.15),0 4px 80px -8px rgba(36,40,47,.25),0 4px 4px -2px rgba(91,94,105,.15);
+  background-color: #fff
+}
+.tippy-box[data-theme~=light][data-placement^=top] > .tippy-arrow:before {
+  border-top-color: #fff
+}
+.tippy-box[data-theme~=light][data-placement^=bottom] > .tippy-arrow:before {
+  border-bottom-color: #fff
+}
+.tippy-box[data-theme~=light][data-placement^=left] > .tippy-arrow:before {
+  border-left-color: #fff
+}
+.tippy-box[data-theme~=light][data-placement^=right] > .tippy-arrow:before {
+  border-right-color: #fff
+}
+.tippy-box[data-theme~=light] > .tippy-backdrop {
+  background-color: #fff
+}
+.tippy-box[data-theme~=light] > .tippy-svg-arrow {
+  fill: #fff
 }
 .swiper {
   overflow: hidden;
@@ -3702,6 +3855,34 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
   }
   .projects-block__card {
     height: 302px
+  }
+  .projects-map__logo {
+    top: 20px;
+    left: 20px
+  }
+  .projects-map__logo-main {
+    width: 280px;
+    height: 22px
+  }
+  .projects-map__close {
+    top: 17px;
+    right: 20px
+  }
+  .projects-map__navigation {
+    display: -ms-grid;
+    display: grid;
+    height: 200px;
+    gap: 25px;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: start;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    padding: 1.5rem
+  }
+  .projects-map__title {
+    font-size: 17px
   }
   .mp-fb-main-slider {
     margin: 0 1.875rem;

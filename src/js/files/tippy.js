@@ -8,6 +8,7 @@ import tippy from 'tippy.js';
 
 // Подключение cтилей из src/scss/libs
 import "../../scss/libs/tippy.scss";
+import 'tippy.js/themes/light.css';
 // Подключение cтилей из node_modules
 //import 'tippy.js/dist/tippy.css';
 
@@ -133,3 +134,18 @@ if (document.querySelector('.product')) {
 }
 
 //#endregion
+
+const pointTippy = document.querySelectorAll('.projects-map__point');
+
+pointTippy.forEach(e => {
+   const node = e.querySelector('.pm-tippy');
+   node.style.display = 'block';
+
+   e = tippy(e, {
+      interactive: true,
+      content: node,
+      allowHTML: true,
+      theme: 'light',
+      placement: 'bottom-start',
+   });
+})

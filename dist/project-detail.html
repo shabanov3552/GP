@@ -7,9 +7,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240705195116" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240708182216" rel="stylesheet">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240705195116">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240708182216">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,7 +66,7 @@
 					<use xlink:href="img/icons/icons.svg#icon_search"></use>
 				</svg>
 			</button>
-			<button type="button" class="right-sidebar__btn" data-popup="#project-map">
+			<button type="button" class="right-sidebar__btn js-open-sidebar-catalog">
 				<img src="img/icons/right-sidebar-logo.svg" alt="">
 				<div class="right-sidebar__text">Карта проектов</div>
 				<img src="img/icons/right-sidebar-arrow.svg" alt="">
@@ -374,6 +374,119 @@
 			</div>
 		</footer>
 	</div>
+	<div id="project-map" class="projects-map popup">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="projects-map__wrapper">
+					<a href="" class="projects-map__logo">
+						<svg class="projects-map__logo-main">
+							<use xlink:href="img/icons/icons.svg#logo-main"></use>
+						</svg>
+					</a>
+					<button data-close type="button" class="popup__close projects-map__close js-sidebar-catalog-close">
+						<svg class="projects-map__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+					<div data-tabs class="projects-map__tabs">
+						<div data-tabs-body class="projects-map__content">
+							<div class="projects-map__body" id="ball">
+								<div class="projects-map__image-ibg"><img src="img/map-krsk.webp" alt=""></div>
+								<div class="projects-map__points">
+									<a href="" class="projects-map__point" style="top:300px; left:300px;" data-popup="#project-list">
+										<div class="pm-tippy" style="display: none;">
+											Школа на Южном берегу
+										</div>
+									</a>
+									<a href="" class="projects-map__point" style="top:600px; left:600px;" data-popup="#project-list">
+										<div class="projects-map__point-city">Красноярск</div>
+										<div class="pm-tippy" style="display: none;">
+											Школа на Южном берегу
+										</div>
+									</a>
+									<a href="" class="projects-map__point" style="top:500px; left:500px;" data-popup="#project-list">
+										<div class="pm-tippy" style="display: none;">
+											Школа в Белых росах
+										</div>
+									</a>
+									<a href="" class="projects-map__point" style="top:400px; left:400px;" data-popup="#project-list">
+										<div class="pm-tippy" style="display: none;">
+											<div class="pm-tippy__grid">
+												<img src="img/city.webp" alt="">
+												<div class="pm-tippy__content">
+													<div class="pm-tippy__city">Красноярск</div>
+													<div class="pm-tippy__count">54 проекта</div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<div class="projects-map__body">
+								<div class="projects-map__image-ibg"><img src="img/map-sfo.webp" alt=""></div>
+							</div>
+							<div class="projects-map__body">
+								<div class="projects-map__image-ibg"><img src="img/map-russia.webp" alt=""></div>
+							</div>
+						</div>
+						<nav data-tabs-titles class="projects-map__navigation">
+							<button type="button" class="projects-map__title _tab-active"><img src="img/map-icon-1.svg" alt=""> Красноярск</button>
+							<button type="button" class="projects-map__title"><img src="img/map-icon-2.svg" alt=""> Сибирский Федеральный округ</button>
+							<button type="button" class="projects-map__title"><img src="img/map-icon-3.svg" alt=""> Россия</button>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="project-list" aria-hidden="true" class="popup project-list">
+		<div class="popup__wrapper">
+			<div class="popup__content">
+				<div class="popup__header">
+					<div class="popup__title">
+						Енисейск
+						<div class="popup__subtitle">54 проекта, среди которых:</div>
+					</div>
+					<button data-close type="button" class="popup__close">
+						<svg class="popup__close-svg">
+							<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="popup__main">
+					<div class="project-list__grid">
+						<div class="project-list__links">
+							<a href="" class="project-list__link">Мужская гимназия</a>
+							<a href="" class="project-list__link">Усадьба Коновалова, 1880-е годы</a>
+							<a href="" class="project-list__link">Берегоукрепление и рекультивация территории острова Городской</a>
+							<a href="" class="project-list__link">Реконструкция дороги со строительством автостоянки ул. Ульяны Громовой</a>
+							<a href="" class="project-list__link">Акушерский корпус</a>
+							<a href="" class="project-list__link">Типография Дементьева, 1890г.</a>
+							<a href="" class="project-list__link">Мужская гимназия</a>
+							<a href="" class="project-list__link">Усадьба Коновалова, 1880-е годы</a>
+							<a href="" class="project-list__link">Берегоукрепление и рекультивация территории острова Городской</a>
+							<a href="" class="project-list__link">Реконструкция дороги со строительством автостоянки ул. Ульяны Громовой</a>
+							<a href="" class="project-list__link">Акушерский корпус</a>
+							<a href="" class="project-list__link">Типография Дементьева, 1890г.</a>
+							<a href="" class="project-list__link">Мужская гимназия</a>
+							<a href="" class="project-list__link">Усадьба Коновалова, 1880-е годы</a>
+							<a href="" class="project-list__link">Берегоукрепление и рекультивация территории острова Городской</a>
+							<a href="" class="project-list__link">Реконструкция дороги со строительством автостоянки ул. Ульяны Громовой</a>
+							<a href="" class="project-list__link">Акушерский корпус</a>
+							<a href="" class="project-list__link">Типография Дементьева, 1890г.</a>
+						</div>
+						<a href="" class="project-list__all">
+							<span>все проекты</span>
+							<svg class="">
+								<use xlink:href="img/icons/icons.svg#arrow-right"></use>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div id="popup" aria-hidden="true" class="popup">
 		<div class="popup__wrapper">
 			<div class="popup__content">
@@ -408,7 +521,7 @@
 						<div class="share">
 							<div class="share__social">
 								<!-- uSocial -->
-								<script async src="https://usocial.pro/usocial/usocial.js?uid=21cd4b58eaf61697&v=6.1.5&_v=20240705195116" data-script="usocial" charset="utf-8"></script>
+								<script async src="https://usocial.pro/usocial/usocial.js?uid=21cd4b58eaf61697&v=6.1.5&_v=20240708182216" data-script="usocial" charset="utf-8"></script>
 								<div class="uSocial-Share" data-pid="b7450283dbc9e941ee22b283d6036804" data-type="share" data-options="round-rect,style1,default,absolute,horizontal,size48,eachCounter0,counter0,nomobile,mobile_position_right" data-social="vk,ok,telegram,wa,vi"></div>
 								<!-- /uSocial -->
 							</div>
@@ -502,8 +615,8 @@
 		</div>
 		<!-- Заказать звонок -->
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240705195116" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20240705195116"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240708182216" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20240708182216"></script>
 </body>
 
 </html>

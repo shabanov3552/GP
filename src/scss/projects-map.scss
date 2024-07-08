@@ -1,4 +1,9 @@
 .projects-map {
+   .sidebar-catalog-open & {
+      z-index: 1500;
+      visibility: visible;
+      pointer-events: auto;
+   }
 
    // .projects-map__wrapper
 
@@ -13,6 +18,12 @@
       position: absolute;
       top: 46px;
       left: 49px;
+      z-index: 2;
+
+      @media (max-width:$lg) {
+         top: 20px;
+         left: 20px;
+      }
    }
 
    // .projects-map__logo-main
@@ -20,6 +31,11 @@
    &__logo-main {
       width: 453px;
       height: 34px;
+
+      @media (max-width:$lg) {
+         width: 280px;
+         height: 22px;
+      }
 
       use {
          fill: #fff;
@@ -34,6 +50,12 @@
       right: 47px;
       width: 28px;
       height: 28px;
+      z-index: 2;
+
+      @media (max-width:$lg) {
+         top: 17px;
+         right: 20px;
+      }
    }
 
    // .projects-map__close-svg
@@ -79,24 +101,58 @@
 
    // .projects-map__points
 
-   &__points {}
+   &__points {
+      .pm-tippy {
+         font-weight: 400;
+         font-size: 18px;
+         line-height: 133%;
+         color: #1f60b8;
+      }
+
+   }
 
    // .projects-map__point
 
    &__point {
-      border-radius: 12px;
-      width: 11px;
-      height: 11px;
-      box-shadow: 0 3px 22px 10px rgba(51, 187, 219, 0.54), 0 0 6px 4px rgba(51, 201, 219, 0.52);
-      background: #fff;
+      width: 21px;
+      height: 21px;
       display: inline-block;
       position: absolute;
-      transition: all 0.3s ease 0s;
       z-index: 2;
+      cursor: pointer;
+
+      &::before {
+         content: '';
+         transition: all 0.3s ease 0s;
+         border-radius: 12px;
+         box-shadow: 0 3px 22px 10px rgba(51, 187, 219, 0.54), 0 0 6px 4px rgba(51, 201, 219, 0.52);
+         background: #fff;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         width: 11px;
+         height: 11px;
+         transform: translate(-50%, -50%);
+      }
 
       &:hover {
-         box-shadow: 0 3px 22px 10px rgba(219, 51, 51, 0.54), 0 0 6px 4px rgba(219, 51, 51, 0.52);
+         &::before {
+            box-shadow: 0 3px 22px 10px rgba(219, 51, 51, 0.54), 0 0 6px 4px rgba(219, 51, 51, 0.52);
+         }
       }
+   }
+
+   // .projects-map__point-city
+
+   &__point-city {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 100%;
+      color: #fff;
+      text-shadow: 0 4px 12px 0 #000, 0 0 0 0 #fff;
+      position: absolute;
+      top: 4px;
+      left: 100%;
    }
 
    // .projects-map__navigation
@@ -113,6 +169,15 @@
       align-items: center;
       gap: 70px;
       background: rgba(0, 0, 0, 0.6);
+
+      @media (max-width:$lg) {
+         display: grid;
+         height: 200px;
+         gap: 25px;
+         align-items: start;
+         justify-content: start;
+         padding: rem(24);
+      }
    }
 
    // .projects-map__title
@@ -121,9 +186,75 @@
       font-weight: 500;
       font-size: 20px;
       color: #8abdff;
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+
+      img {
+         justify-self: center;
+         max-width: 100%;
+      }
+
+      @media (max-width:$lg) {
+         font-size: 17px;
+      }
 
       &._tab-active {
          color: #fff;
+      }
+   }
+}
+
+.project-list {
+   // .project-list__grid
+
+   &__grid {
+      display: grid;
+      grid-template-rows: 1fr 40px;
+      height: 100%;
+      align-items: start;
+   }
+
+   // .project-list__links
+
+   &__links {
+      display: grid;
+      gap: 30px;
+   }
+
+   // .project-list__link
+
+   &__link {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 125%;
+      color: #1f60b8;
+   }
+
+   // .project-list__all
+
+   &__all {
+      font-weight: 600;
+      font-size: 20px;
+      color: #1f60b8;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+      position: absolute;
+      bottom: 34px;
+      padding-top: 15px;
+      background: #fff;
+      width: 100%;
+
+      svg {
+         width: 24px;
+         height: 12px;
+
+         use {
+            fill: #1f60b8;
+         }
       }
    }
 }
