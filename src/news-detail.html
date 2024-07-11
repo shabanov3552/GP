@@ -1,0 +1,121 @@
+@@include('html/_header.htm',{
+"title":"Новости Деталка",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Проспект Свободный в Красноярске станет шестиполосным"
+   })
+   <div class="press-detail">
+      <div class="press-detail__container">
+
+         <div class="press-detail__headline">
+            <div class="press-detail__date">24.01.2020</div>
+            <a href="" class="press-detail__tag">Комсомольская правда от 3 июня 2014г.</a>
+            <a href="" class="press-detail__tag">Автор: Андрей Москов</a>
+         </div>
+
+         <div class="press-detail__first-image-ibg press-detail__first-image-ibg_contain"><img src="@img/proj-det-21.png" alt=""></div>
+
+         <div class="press-detail__content">
+            <div class="press-detail__text">
+               <p>АО «Гражданпроект» принимает активное участие в восстановлении города Мариуполя.</p>
+               <p>Сотрудниками института были проведены обследования жилых домов ,разработана проектная документация, а также проведены строительно - монтажные работы по их восстановлению.</p>
+               <p>Восемь жилых домов уже обрели вторую жизнь: теперь они вновь готовы принимать своих жильцов.</p>
+            </div>
+            <img src="@img/proj-det-22.png" alt="">
+
+         </div>
+         <div class="pd-high-text">
+            <div class="pd-high-text__container">
+               <div class="pd-high-text__chunck">
+                  <p>С двухъярусной смотровой площадки открывается бесподобный вид на Енисей и окрестности. Фотографировать здесь просто необходимо!</p>
+               </div>
+            </div>
+         </div>
+
+         <div class="page-gallery-block" data-gallery>
+            <a href="@img/proj-det-20.png" class="page-gallery-block__gallery-ibg"><img src="@img/proj-det-20.png" alt=""></a>
+            <a href="@img/proj-det-20.png" class="page-gallery-block__gallery-ibg"><img src="@img/proj-det-20.png" alt=""></a>
+            <a href="@img/proj-det-20.png" class="page-gallery-block__gallery-ibg"><img src="@img/proj-det-20.png" alt=""></a>
+            <a href="@img/proj-det-20.png" class="page-gallery-block__gallery-ibg"><img src="@img/proj-det-20.png" alt=""></a>
+         </div>
+
+         <div class="press-detail__video">
+            <iframe src="https://www.youtube.com/embed/q9tiJUND9MY?si=yyKIakprNnZXyHFv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         </div>
+      </div>
+   </div>
+
+   <div class="news-block-headline">
+      <div class="news-block-headline__container">
+         <div class="news-block-headline__title">Другие новости</div>
+         <div class="news-block-headline__slider-nav">
+            <button type="button" class="swiper-button-prev">
+               <svg>
+                  <use xlink:href="img/icons/icons.svg#icon_slider-left"></use>
+               </svg>
+            </button>
+            <button type="button" class="swiper-button-next">
+               <svg>
+                  <use xlink:href="img/icons/icons.svg#icon_slider-right"></use>
+               </svg>
+            </button>
+         </div>
+      </div>
+   </div>
+   <div class="news-block news-block_margin-bottom">
+      <div class="news-block__container">
+         <div class="news-block__content">
+            <div class="news-block__slider swiper">
+               <div class="news-block__wrapper swiper-wrapper">
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"31",
+                     "dateMonth":"сент",
+                     "title":"Общественное собрание АО «Гражданпроект»"
+                     })
+                  </div>
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"15",
+                     "dateMonth":"март",
+                     "title":"Положительное заключение экспертизы на быстровозводимую крытую спортивную площадку в с. Дзержинское"
+                     })
+                  </div>
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"9",
+                     "dateMonth":"янв",
+                     "title":"Утро начинается с патриотизма"
+                     })
+                  </div>
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"12",
+                     "dateMonth":"нояб",
+                     "title":"Проведение восстановительно-строительных работ на территории ДНР, в Мариуполе"
+                     })
+                  </div>
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"25",
+                     "dateMonth":"окт",
+                     "title":"Обучающие курсы от АО «ДОМ.РФ» при поддержке Министерства строительства"
+                     })
+                  </div>
+                  <div class="news-block__slide swiper-slide">
+                     @@include('html/_hews-card.htm',{
+                     "dateNum":"11",
+                     "dateMonth":"янв",
+                     "title":"Строительство бассейна в г. Норильск"
+                     })
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+</main>
+@@include('html/_footer.htm',{})

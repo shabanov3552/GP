@@ -503,7 +503,7 @@ projectMaps.forEach((mapBody) => {
       // mapBody.style.zIndex = 1000;
       // document.body.append(mapBody);
 
-      moveAt(event.pageX, event.pageY);
+      moveAt(event.clientX, event.clientY);
 
       // переносит мяч на координаты (pageX, pageY),
       // дополнительно учитывая изначальный сдвиг относительно указателя мыши
@@ -513,7 +513,7 @@ projectMaps.forEach((mapBody) => {
       }
 
       function onMouseMove(event) {
-         moveAt(event.pageX, event.pageY);
+         moveAt(event.clientX, event.clientY);
       }
 
       // передвигаем мяч при событии mousemove
@@ -526,7 +526,5 @@ projectMaps.forEach((mapBody) => {
       };
    });
 })
-
-
 
 //#endregion

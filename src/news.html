@@ -1,0 +1,65 @@
+@@include('html/_header.htm',{
+"title":"Новости",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Новости"
+   })
+   <div class="categories-block categories-block_left-padding">
+      <div class="categories-block__container">
+         <div class="categories-block__grid">
+            <a href="" class="categories-block__link _active">Все</a>
+            <a href="" class="categories-block__link">Видео</a>
+            <a href="" class="categories-block__link">Газеты и журналы</a>
+            <a href="" class="categories-block__link">Упоминания в сети</a>
+         </div>
+      </div>
+   </div>
+   <div class="news-block">
+      <div class="news-block__container">
+         <div class="news-block__content">
+            <div class="news-block__body">
+               <div class="news-block__grid">
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"31",
+                  "dateMonth":"сент",
+                  "title":"Общественное собрание АО «Гражданпроект»"
+                  })
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"15",
+                  "dateMonth":"март",
+                  "title":"Положительное заключение экспертизы на быстровозводимую крытую спортивную площадку в с. Дзержинское"
+                  })
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"9",
+                  "dateMonth":"янв",
+                  "title":"Утро начинается с патриотизма"
+                  })
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"12",
+                  "dateMonth":"нояб",
+                  "title":"Проведение восстановительно-строительных работ на территории ДНР, в Мариуполе"
+                  })
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"25",
+                  "dateMonth":"окт",
+                  "title":"Обучающие курсы от АО «ДОМ.РФ» при поддержке Министерства строительства"
+                  })
+                  @@include('html/_hews-card.htm',{
+                  "dateNum":"11",
+                  "dateMonth":"янв",
+                  "title":"Строительство бассейна в г. Норильск"
+                  })
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="news-block__pagging">
+         <div class="news-block__container">
+            @@include('html/_pagging.htm',{})
+         </div>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

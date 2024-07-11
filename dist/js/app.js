@@ -10422,6 +10422,29 @@
                     }
                 }
             });
+            if (document.querySelector(".news-block__slider")) new swiper_core_Swiper(".news-block__slider", {
+                modules: [ Navigation ],
+                observer: true,
+                observeParents: true,
+                slidesPerView: 3,
+                spaceBetween: 1,
+                navigation: {
+                    prevEl: ".news-block-headline__slider-nav .swiper-button-prev",
+                    nextEl: ".news-block-headline__slider-nav .swiper-button-next"
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1
+                    },
+                    991.98: {
+                        slidesPerView: 2
+                    },
+                    1699.98: {
+                        slidesPerView: 3
+                    }
+                },
+                on: {}
+            });
             if (document.querySelector(".sw")) new swiper_core_Swiper(".sw", {
                 modules: [ Navigation ],
                 observer: true,
@@ -12604,13 +12627,13 @@ PERFORMANCE OF THIS SOFTWARE.
                 let shiftX = event.clientX - mapBody.getBoundingClientRect().left;
                 let shiftY = event.clientY - mapBody.getBoundingClientRect().top;
                 mapBody.style.position = "absolute";
-                moveAt(event.pageX, event.pageY);
+                moveAt(event.clientX, event.clientY);
                 function moveAt(pageX, pageY) {
                     mapBody.style.left = pageX - shiftX + "px";
                     mapBody.style.top = pageY - shiftY + "px";
                 }
                 function onMouseMove(event) {
-                    moveAt(event.pageX, event.pageY);
+                    moveAt(event.clientX, event.clientY);
                 }
                 document.addEventListener("mousemove", onMouseMove);
                 mapBody.onmouseup = function() {
