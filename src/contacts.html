@@ -1,0 +1,81 @@
+@@include('html/_header.htm',{
+"title":"Контакты",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Контакты"
+   })
+
+   <div class="contacts">
+      <div class="contacts__container">
+
+         <div class="contacts__content">
+            <div class="contacts__main">
+               <div class="contacts__header">
+                  <div class="contacts__t-title">Акционерное общество </div>
+                  <div class="contacts__title">«Территориальный градостроительный институт «Красноярскгражданпроект»</div>
+                  <div class="contacts__b-title">Сокращенное наименование – АО «Гражданпроект»</div>
+               </div>
+               <div class="contacts__center">
+                  <div class="contacts__row">
+                     <img src="@img/icons/contact-1.svg" alt="">
+                     <div class="contacts__name">Адрес</div>
+                     <div class="contacts__item">
+                        <span>660025, Красноярск, пр. Красноярский рабочий, 126</span>
+                     </div>
+                  </div>
+                  <div class="contacts__row">
+                     <img src="@img/icons/contact-2.svg" alt="">
+                     <div class="contacts__name">Приемная</div>
+                     <div class="contacts__item">
+                        <a href="tel:+7 (391) 213-28-33">+7 (391) 213-28-33</a>
+                     </div>
+                  </div>
+                  <div class="contacts__row">
+                     <img src="@img/icons/contact-2.svg" alt="">
+                     <div class="contacts__name">Канцелярия</div>
+                     <div class="contacts__item">
+                        <a href="tel:213-24-82">213-24-82</a>
+                     </div>
+                  </div>
+                  <div class="contacts__row">
+                     <img src="@img/icons/contact-3.svg" alt="">
+                     <div class="contacts__name">E-mail</div>
+                     <div class="contacts__item">
+                        <a href="mailto:">kgp@krasgp.ru</a>
+                     </div>
+                  </div>
+                  <div class="contacts__row">
+                     <img src="@img/icons/contact-4.svg" alt="">
+                     <div class="contacts__name">Часы работы</div>
+                     <div class="contacts__item">
+                        <div class="contacts__work-time">
+                           <span>Пн–Чт</span>
+                           <span>8:00–17:00</span>
+                        </div>
+                        <div class="contacts__work-time">
+                           <span>Пт</span>
+                           <span>8:00–12:00 12:50–16:00</span>
+                        </div>
+                        <div class="contacts__work-time">
+                           <span>Сб–Вс</span>
+                           <span>Выходной</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="contacts__image-ibg"><img src="@img/contacts.png" alt=""></div>
+         </div>
+
+         <div class="contacts__map">
+            <div id="map"></div>
+            <script>
+               @@include('js/files/map.js', {})
+            </script>
+         </div>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

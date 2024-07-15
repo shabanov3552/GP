@@ -1,0 +1,169 @@
+@@include('html/_header.htm',{
+"title":"Вакансия",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Архитектор (главный, ведущий, 1, 2 категории) "
+   })
+
+   <div class="job-detail">
+      <div class="job-detail__container">
+         <div class="job-detail__descr">Основные виды деятельности: - осуществление функций генерального проектировщика; - инженерно-геологические и топографические изыскания для строительства</div>
+         <div class="job-detail__main-text">
+            <h2>Обязанности</h2>
+            <ul>
+               <li>Выполнение проектной и рабочей документации.</li>
+               <li>Разработка технических решений</li>
+            </ul>
+            <h2>Требования</h2>
+            <ul>
+               <li>Профильное высшее образование и опыт работы в данной сфере от 3 лет;</li>
+               <li>Знание нормативной документации;</li>
+               <li>Знание программ AutoCAD, Revit, MS Office;</li>
+               <li>Умение работать в режиме многозадачности;</li>
+               <li>Ответственное отношение к делу и желание получить качественный результат;</li>
+               <li>Умение работать в команде и индивидуально.</li>
+            </ul>
+            <h2>Условия</h2>
+            <ul>
+               <li>Официальное трудоустройство согласно ТК РФ;</li>
+               <li>Официальная заработная плата;</li>
+               <li>График работы 5-дневка, с 8:30-17:30;</li>
+               <li>Социальный пакет (оплата больничных, отпусков, материальная помощь, система медицинских осмотров);</li>
+               <li>Для разъездного характера работы предоставляется транспорт;</li>
+               <li>Корпоративные мероприятия (совместные выезды на природу, спортивно-развлекательные конкурсы, детские праздники, день строителя, новый год и многое другое);</li>
+               <li>Работа в развивающейся компании, с различными интересными проектами и задачами</li>
+               <li>Возможность карьерного роста и получение широкомасштабного опыта.</li>
+            </ul>
+            <h2>Ключевые навыки</h2>
+            <ul>
+               <li>AutoCAD</li>
+               <li>Организация мероприятий</li>
+               <li>Ориентация на результат</li>
+               <li>Многозадачность</li>
+            </ul>
+            <h2>Заработная плата</h2>
+            <p>Тысяча</p>
+         </div>
+      </div>
+   </div>
+   <div class="page-form">
+      <div class="page-form__container">
+         <div class="page-form__form">
+            <form action="" class="form" data-parsley-validate data-parsley-trigger="change">
+               <div class="form__title">Форма обратной связи</div>
+               <div class="form__line">
+                  <label for="" class="form__label">Текст лейбла</label>
+                  <input id="" type="text" name="" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="" class="form__label">Телефон</label>
+                  <input required id="" type="tel" name="" class="form__input js_phone">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="" class="form__label">E-mail</label>
+                  <input required id="" type="email" name="" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="" class="form__label">Сообщение</label>
+                  <textarea required id="" autocomplete="off" name="" class="form__input"></textarea>
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line form__line_file">
+                  <input type="file" name="file" id="input__file" class="input input__file" required>
+                  <label for="input__file" class="input__file-button">
+                     <span class="input__file-icon-wrapper">
+                        <svg class="input__file-icon">
+                           <use xlink:href="img/icons/icons.svg#icon_file"></use>
+                        </svg>
+                     </span>
+                     <div class="input__file-button-text">Прикрепить файл</div>
+                  </label>
+                  <script>
+                     const input = document.querySelector('.input__file');
+                     const preview = document.querySelector('.input__file-button-text');
+                     const fileIcon = document.querySelector('.input__file-icon-wrapper');
+                     let clsBtn = clearBtnCreate();
+                     input.style.opacity = 0;
+
+                     input.addEventListener('change', insertFileName);
+                     clsBtn.addEventListener('click', fileRemove);
+
+                     function fileRemove(e) {
+                        e.preventDefault();
+                        input.value = '';
+                        clsBtn.remove();
+                        preview.textContent = `Прикрепить файл`;
+                        preview.before(fileIcon);
+                     }
+
+                     function clearBtnCreate() {
+                        let clearBtn = document.createElement('span');
+                        clearBtn.classList.add('clear-btn');
+                        clearBtn.insertAdjacentHTML(
+                           'beforeend',
+                           `<svg class="input__file-icon">
+                              <use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+                           </svg>`
+                        );
+                        return clearBtn
+                     }
+
+
+                     function insertFileName() {
+                        while (preview.firstChild) {
+                           preview.removeChild(preview.firstChild);
+                        }
+
+                        const curFiles = input.files;
+                        if (curFiles.length === 0) {
+                           const para = document.createElement('p');
+                           para.textContent = 'Не выбрано ни одного файла';
+                           preview.appendChild(para);
+                        } else {
+                           fileIcon.remove();
+                           preview.before(clsBtn);
+                           const list = document.createElement('ul');
+                           preview.appendChild(list);
+                           // list.style.paddingLeft = "20px";
+                           for (const file of curFiles) {
+                              const listItem = document.createElement('li');
+                              const para = document.createElement('p');
+                              para.textContent = file.name;
+                              listItem.appendChild(para);
+                              list.appendChild(listItem);
+                           }
+                        }
+                     }
+                  </script>
+               </div>
+               <button type="submit" class="form__button">Отправить</button>
+               <div class="form__check">
+                  <label class="checkbox">
+                     <input required class="checkbox__input" type="checkbox" value="1" name="consent" checked>
+                     <span class="checkbox__chunk"></span>
+                     <span class="checkbox__text">Отправляя данные, я даю свое <a href="">согласие на обработку перс. данных</a></span>
+                  </label>
+               </div>
+            </form>
+         </div>
+         <div class="page-form__text">
+            <p>Резюме можно направить через форму обратной связи или на почту <a href="mailto:kgp@krasgb.ru">kgp@krasgb.ru</a>.</p>
+            <p>Также, для уточнения информации вы можете позвонить по номеру: <a href="tel:++7 (391) 213-28-33">+7 (391) 213-28-33</a></p>
+         </div>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

@@ -1,0 +1,41 @@
+@@include('html/_header.htm',{
+"title":"Документы",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Документы"
+   })
+
+   <div class="documents">
+      <div class="documents__container">
+         <div class="documents__links">
+            <a href="" class="documents__link">
+               <img src="@img/icons/doc-icon.svg" alt="">
+               <div class="documents__link-name">Устав АО «Гражданпроект»</div>
+               <div class="documents__link-type">DOCX, 13 КБ</div>
+            </a>
+            <a href="" class="documents__link">
+               <img src="@img/icons/doc-icon.svg" alt="">
+               <div class="documents__link-name">Реквизиты АО «Гражданпроект»</div>
+               <div class="documents__link-type">DOCX, 266 КБ</div>
+            </a>
+         </div>
+         <ul class="documents__list">
+            <li class="documents__item">
+               <img src="@img/doc-1.png" alt="">
+               <div class="documents__name">Лицензия на осуществление деятельности по сохранению объектов культурного наследия (памятников истории и культуры) народов Российской Федерации</div>
+            </li>
+            <li class="documents__item">
+               <img src="@img/doc-2.png" alt="">
+               <div class="documents__name">Свидетельство на товарный знак</div>
+            </li>
+            <li class="documents__item">
+               <img src="@img/doc-3.png" alt="">
+               <div class="documents__name">Свидетельство НП СРО «Центризыскания»</div>
+            </li>
+         </ul>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

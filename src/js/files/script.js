@@ -488,6 +488,7 @@ function compareHeightLine(origEl, cloneEl, parentEl) {
 //#endregion
 
 //#region Карта проектов перетаскивание
+
 const projectMaps = document.querySelectorAll('.projects-map__body');
 projectMaps.forEach((mapBody) => {
 
@@ -495,7 +496,7 @@ projectMaps.forEach((mapBody) => {
       return false;
    };
 
-   mapBody.addEventListener('mousedown', (event) => {
+   mapBody.addEventListener('pointerdown', (event) => {
       let shiftX = event.clientX - mapBody.getBoundingClientRect().left;
       let shiftY = event.clientY - mapBody.getBoundingClientRect().top;
 
@@ -514,14 +515,18 @@ projectMaps.forEach((mapBody) => {
 
       function onMouseMove(event) {
          moveAt(event.clientX, event.clientY);
+         if (event.target === document.documentElement) {
+            document.removeEventListener('pointermove', onMouseMove);
+            mapBody.onmouseup = null;
+         }
       }
 
       // передвигаем мяч при событии mousemove
-      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('pointermove', onMouseMove);
 
       // отпустить мяч, удалить ненужные обработчики
-      mapBody.onmouseup = function () {
-         document.removeEventListener('mousemove', onMouseMove);
+      mapBody.onpointerup = function () {
+         document.removeEventListener('pointermove', onMouseMove);
          mapBody.onmouseup = null;
       };
    });

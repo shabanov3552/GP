@@ -1,0 +1,41 @@
+@@include('html/_header.htm',{
+"title":"Сведения",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Сведения"
+   })
+
+   <div class="intelligence">
+      <div class="intelligence__container">
+         <!-- тут у ссылок разные svg иконки. 
+         хз для чего но так нарисовано -->
+         <a href="" class="intelligence__link">
+            <span>Перечень рекомендуемых мероприятий по улучшению условий труда</span>
+            <svg>
+               <use xlink:href="img/icons/icons.svg#icon-doc"></use>
+            </svg>
+         </a>
+         <a href="" class="intelligence__link">
+            <span>Сводная ведомость результатов проведения специальной оценки условий труда 19.03.2024</span>
+            <svg>
+               <use xlink:href="img/icons/icons.svg#icon-doc"></use>
+            </svg>
+         </a>
+         <a href="" class="intelligence__link">
+            <span>База отдыха "Каштак"</span>
+            <svg>
+               <use xlink:href="img/icons/icons.svg#arrow-right"></use>
+            </svg>
+         </a>
+         <a href="" class="intelligence__link">
+            <span>Заключение эксперта по результатам специальной оценки условий труда от 22.06.2015</span>
+            <svg>
+               <use xlink:href="img/icons/icons.svg#icon-doc"></use>
+            </svg>
+         </a>
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

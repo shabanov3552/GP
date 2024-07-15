@@ -683,6 +683,68 @@
    }
 }
 
+.services {
+   margin-bottom: rem(155);
+
+   @media (min-width:$xl) {
+      padding: rem(0) rem(160);
+
+      @media (max-width:$xpc) {
+         padding: rem(0) rem(107);
+      }
+   }
+
+   @media (max-width:$md) {
+      margin-bottom: rem(50);
+   }
+
+   @media (max-width:$sm) {
+      margin-bottom: rem(44);
+   }
+
+   .services-block__grid {
+      @media (min-width:$xl) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+   }
+
+   // .services__container
+
+   &__container {}
+
+   // .services__image-ibg
+
+   &__image-ibg {
+      height: 370px;
+      margin-bottom: rem(50);
+   }
+
+   // .services__content
+
+   &__content {
+      h2 {
+         font-weight: 600;
+         font-size: 24px;
+         line-height: 133%;
+         color: #000;
+         margin-bottom: rem(40);
+      }
+
+      ul {
+         padding-left: rem(25);
+         margin-bottom: rem(50);
+
+         li {
+            list-style-type: disc;
+
+            &:not(:last-child) {
+               margin-bottom: rem(20);
+            }
+         }
+      }
+   }
+}
+
 .project-headline {
    height: 360px;
    position: relative;
@@ -1025,6 +1087,309 @@
 
       @media (max-width:$lg) {
          height: 179px;
+      }
+   }
+}
+
+.partners {
+   margin-bottom: rem(80);
+   // .partners__container
+
+   &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 100px 200px;
+      max-width: 900px;
+      margin: 0 auto;
+
+      @media (min-width:em(1921)) {
+         max-width: 1900px;
+      }
+
+      @media (max-width:$md) {
+         grid-template-columns: 1fr;
+         gap: 50px;
+      }
+   }
+
+   // .partners__link
+
+   &__link {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 144%;
+      text-align: center;
+      color: #1f60b8;
+      display: grid;
+      justify-items: center;
+      gap: 23px;
+      align-items: center;
+
+      img {
+         max-width: 100%;
+      }
+   }
+}
+
+.management {
+   margin-bottom: rem(155);
+
+   @media (min-width:$xl) {
+      padding: rem(0) rem(160);
+
+      @media (max-width:$xpc) {
+         padding: rem(0) rem(107);
+      }
+   }
+
+   @media (max-width:$md) {
+      margin-bottom: rem(50);
+   }
+
+   @media (max-width:$sm) {
+      margin-bottom: rem(44);
+   }
+
+   // .management__container
+
+   &__container {}
+
+   // .management__item
+
+   &__item {}
+
+   // .management__image-ibg
+
+   &__image-ibg {}
+
+   // .management__role
+
+   &__role {}
+
+   // .management__name
+
+   &__name {}
+
+   // .management__link
+
+   &__link {}
+}
+
+.public-hearing {
+   margin-bottom: rem(155);
+
+   @media (min-width:$xl) {
+      padding: rem(0) rem(160);
+
+      @media (max-width:$xpc) {
+         padding: rem(0) rem(107);
+      }
+   }
+
+   @media (max-width:$md) {
+      margin-bottom: rem(50);
+   }
+
+   @media (max-width:$sm) {
+      margin-bottom: rem(44);
+   }
+
+   // .public-hearing__container
+
+   &__container {}
+
+   // .public-hearing__item
+
+   &__item {
+      margin-bottom: rem(57);
+   }
+
+   // .public-hearing__link
+
+   &__link {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 133%;
+      color: #1f60b8;
+      margin-bottom: rem(26);
+      display: block;
+
+      &:hover {
+         text-decoration: underline;
+      }
+   }
+
+   // .public-hearing__descr
+
+   &__descr {
+      line-height: 144%;
+   }
+}
+
+.public-hearing {
+
+   // .public-hearing__container
+
+   &__container {}
+
+   // .public-hearing__detail-descr
+
+   &__detail-descr {
+      line-height: 144%;
+      margin-bottom: rem(53);
+
+      ul {
+         padding-left: rem(25);
+         margin-bottom: rem(50);
+
+         li {
+            list-style-type: disc;
+
+            &:not(:last-child) {
+               margin-bottom: rem(20);
+            }
+         }
+      }
+   }
+
+   // .public-hearing__detail-period
+
+   &__detail-period {
+      line-height: 144%;
+      margin-bottom: rem(53);
+   }
+
+   // .public-hearing__detail-title
+
+   &__detail-title {
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 133%;
+      color: #000;
+      margin-bottom: rem(24);
+   }
+
+   // .public-hearing__detail-status
+
+   &__detail-status {
+      line-height: 144%;
+      margin-bottom: rem(53);
+   }
+
+   // .public-hearing__detail-conclusion
+
+   &__detail-conclusion {
+      line-height: 144%;
+      margin-bottom: rem(53);
+   }
+
+   // .public-hearing__docs
+
+   &__docs {
+      margin-top: rem(53);
+      display: grid;
+      justify-self: start;
+      gap: 30px;
+   }
+}
+
+.search-result {
+   margin-bottom: rem(155);
+
+   @media (min-width:$xl) {
+      padding: rem(0) rem(160);
+
+      @media (max-width:$xpc) {
+         padding: rem(0) rem(107);
+      }
+   }
+
+   @media (max-width:$md) {
+      margin-bottom: rem(50);
+   }
+
+   @media (max-width:$sm) {
+      margin-bottom: rem(44);
+   }
+
+   // .search-result__container
+
+   &__container {}
+
+   // .search-result__list
+
+   &__list {
+      margin-bottom: rem(80);
+   }
+
+   // .search-result__item
+
+   &__item {
+      &::marker {
+         color: #1f60b8;
+      }
+
+      &:not(:last-child) {
+         margin-bottom: rem(50);
+      }
+
+      b {
+         font-weight: 600;
+      }
+   }
+
+   // .search-result__item-top
+
+   &__item-top {
+      margin-bottom: rem(7);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 58px;
+   }
+
+   // .search-result__link
+
+   &__link {
+      font-weight: 400;
+      font-size: 20px;
+      color: #1f60b8;
+   }
+
+   // .search-result__tag
+
+   &__tag {
+      background: #ededed;
+      padding: rem(0) rem(13);
+      line-height: 194%;
+      display: inline-block;
+   }
+
+   // .search-result__item-text
+
+   &__item-text {
+      line-height: 144%;
+      padding-left: rem(57);
+   }
+
+   // .search-result__pagging
+
+   &__pagging {}
+
+   // .search-result__text
+
+   &__text {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 146%;
+      color: #000;
+
+      a {
+         color: #1f60b8;
+
+         &:hover {
+            text-decoration: underline;
+         }
       }
    }
 }
