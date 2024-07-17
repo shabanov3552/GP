@@ -8,7 +8,9 @@ import { flsModules } from "./modules.js";
 document.addEventListener("click", function (e) {
    // открыть модалку каталога
    if (bodyLockStatus && e.target.closest('.js-open-sidebar-catalog')) {
-      bodyLockToggle();
+      if (!document.documentElement.classList.contains('menu-open')) {
+         bodyLockToggle();
+      }
       document.documentElement.classList.toggle("sidebar-catalog-open");
       if (window.matchMedia("(min-width: 991.98px)").matches && !isMobile.any()) {
          document.addEventListener("mouseover", sidebarCatalogActions);
@@ -20,7 +22,9 @@ document.addEventListener("click", function (e) {
    }
    // закрыть модалку каталога
    if (e.target.closest('.js-sidebar-catalog-close')) {
-      bodyLockToggle();
+      if (!document.documentElement.classList.contains('menu-open')) {
+         bodyLockToggle();
+      }
       document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
    }
    // if (!e.target.closest('.projects-map') && document.querySelector('.sidebar-catalog-open') && !e.target.closest('.js-open-sidebar-catalog')) {
@@ -490,6 +494,12 @@ function compareHeightLine(origEl, cloneEl, parentEl) {
 //#region Карта проектов перетаскивание
 
 const projectMaps = document.querySelectorAll('.projects-map__body');
+// window.addEventListener('resize', e => {
+//    projectMaps.forEach((mapBody) => {
+//       mapBody.style.top = `${0}px`
+//       mapBody.style.left = `${0}px`
+//    })
+// })
 projectMaps.forEach((mapBody) => {
 
    mapBody.ondragstart = function () {
@@ -504,17 +514,51 @@ projectMaps.forEach((mapBody) => {
       // mapBody.style.zIndex = 1000;
       // document.body.append(mapBody);
 
-      moveAt(event.clientX, event.clientY);
+      moveAt(event.clientX, event.clientY, event);
 
       // переносит мяч на координаты (pageX, pageY),
       // дополнительно учитывая изначальный сдвиг относительно указателя мыши
-      function moveAt(pageX, pageY) {
-         mapBody.style.left = pageX - shiftX + 'px';
-         mapBody.style.top = pageY - shiftY + 'px';
+      function moveAt(pageX, pageY, event) {
+         const nav = document.querySelector('.projects-map__navigation');
+         let top = pageY - shiftY;
+         let left = pageX - shiftX;
+         let right = (shiftX - pageX) - (mapBody.clientWidth - event.view.window.innerWidth);
+         let bottom = (shiftY - pageY) - (mapBody.clientHeight - event.view.window.innerHeight);
+
+         // Высота
+         // mapBody.style.top = `${top}px`
+         // mapBody.style.bottom = `${bottom}px`
+         // console.log(`top: ${top}px`);
+         // console.log(nav.clientHeight + top);
+         // console.log(`bottom: ${bottom}px`);
+
+         if (!(top >= (event.view.window.innerHeight - (mapBody.clientHeight + nav.clientHeight)))) {
+            mapBody.style.top = `${(event.view.window.innerHeight - (mapBody.clientHeight + nav.clientHeight))}px`
+
+            if (event.view.window.innerHeight > (mapBody.clientHeight + nav.clientHeight)) { mapBody.style.top = `${0}px` }
+         } else {
+
+            if (top < 0) { mapBody.style.top = `${top}px` }
+         }
+
+         // Ширина
+         // mapBody.style.left = `${left}px`
+         // mapBody.style.right = `${right}px`
+         // console.log(`left: ${left}px`);
+         // console.log(`right: ${right}px`);
+
+         if (left <= event.view.window.innerWidth - mapBody.clientWidth) {
+            mapBody.style.left = `${event.view.window.innerWidth - mapBody.clientWidth}px`
+
+            if (event.view.window.innerWidth > mapBody.clientWidth) { mapBody.style.left = `${0}px` }
+         } else {
+
+            if (left < 0) { mapBody.style.left = `${left}px` }
+         }
       }
 
       function onMouseMove(event) {
-         moveAt(event.clientX, event.clientY);
+         moveAt(event.clientX, event.clientY, event);
          if (event.target === document.documentElement) {
             document.removeEventListener('pointermove', onMouseMove);
             mapBody.onmouseup = null;
@@ -525,7 +569,7 @@ projectMaps.forEach((mapBody) => {
       document.addEventListener('pointermove', onMouseMove);
 
       // отпустить мяч, удалить ненужные обработчики
-      mapBody.onpointerup = function () {
+      document.onpointerup = function () {
          document.removeEventListener('pointermove', onMouseMove);
          mapBody.onmouseup = null;
       };

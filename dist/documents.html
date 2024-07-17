@@ -7,9 +7,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240715143549" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240717234151" rel="stylesheet">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240715143549">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240717234151">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -119,19 +119,59 @@
 						</a>
 					</div>
 					<ul class="documents__list">
-						<li class="documents__item">
+						<li class="documents__item" data-popup="#docs-gallery-1">
 							<img src="img/doc-1.webp" alt="">
 							<div class="documents__name">Лицензия на осуществление деятельности по сохранению объектов культурного наследия (памятников истории и культуры) народов Российской Федерации</div>
 						</li>
-						<li class="documents__item">
+						<li class="documents__item" data-popup="#docs-gallery-1">
 							<img src="img/doc-2.webp" alt="">
 							<div class="documents__name">Свидетельство на товарный знак</div>
 						</li>
-						<li class="documents__item">
+						<li class="documents__item" data-popup="#docs-gallery-1">
 							<img src="img/doc-3.webp" alt="">
 							<div class="documents__name">Свидетельство НП СРО «Центризыскания»</div>
 						</li>
 					</ul>
+				</div>
+				<div id="docs-gallery-1" aria-hidden="true" class="popup popup_center docs-gallery-popup">
+					<div class="popup__wrapper">
+						<div class="popup__content">
+							<div class="popup__header">
+								<div class="popup__title">Лицензия на осуществление деятельности по сохранению объектов культурного наследия (памятников истории и культуры) народов Российской Федерации</div>
+								<button data-close type="button" class="popup__close">
+									<svg class="popup__close-svg">
+										<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+									</svg>
+								</button>
+							</div>
+							<div class="popup__main">
+								<div class="docs-gallery__slider swiper">
+									<div class="docs-gallery__wrapper swiper-wrapper">
+										<div class="docs-gallery__slide swiper-slide">
+											<div class="docs-gallery__image-ibg docs-gallery__image-ibg_contain"><img src="img/doc-1-1.webp" alt=""></div>
+										</div>
+										<div class="docs-gallery__slide swiper-slide">
+											<div class="docs-gallery__image-ibg docs-gallery__image-ibg_contain"><img src="img/doc-1-2.webp" alt=""></div>
+										</div>
+										<div class="docs-gallery__slide swiper-slide">
+											<div class="docs-gallery__image-ibg docs-gallery__image-ibg_contain"><img src="img/doc-1-3.webp" alt=""></div>
+										</div>
+									</div>
+									<div class="swiper-pagination"></div>
+									<button type="button" class="swiper-button-prev">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#icon_slider-left"></use>
+										</svg>
+									</button>
+									<button type="button" class="swiper-button-next">
+										<svg>
+											<use xlink:href="img/icons/icons.svg#icon_slider-right"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -359,8 +399,8 @@
 		<!-- Спасибо -->
 
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240715143549" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20240715143549"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240717234151" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20240717234151"></script>
 </body>
 
 </html>

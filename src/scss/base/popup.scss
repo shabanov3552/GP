@@ -64,10 +64,16 @@ body::after {
 		width: 100%;
 		height: 100%;
 
-		.popup_show &,
-		.sidebar-catalog-open & {
+		.popup_show & {
 			visibility: visible;
 			transform: translate(0px, 0px);
+		}
+
+		.projects-map & {
+			.sidebar-catalog-open & {
+				visibility: visible;
+				transform: translate(0px, 0px);
+			}
 		}
 
 		.popup_center & {
@@ -82,10 +88,6 @@ body::after {
 
 		.video-popup & {
 			max-width: 100%;
-		}
-
-		.lock & {
-			visibility: visible;
 		}
 	}
 
@@ -215,6 +217,8 @@ body::after {
 	pointer-events: auto;
 }
 
+.docs-gallery-popup {}
+
 //#endregion
 
 //#region Дополнительные стили
@@ -231,6 +235,15 @@ body::after {
 		.search-popup & {
 			justify-content: flex-start;
 		}
+
+		.docs-gallery-popup & {
+			justify-content: flex-start;
+			padding: rem(40) 0;
+
+			@media (max-width:$md) {
+				padding: rem(20) 0;
+			}
+		}
 	}
 
 	// .popup__content
@@ -242,6 +255,7 @@ body::after {
 
 		.projects-map & {
 			max-width: 100%;
+			overflow: hidden;
 		}
 
 		.popup-thanks & {
@@ -254,6 +268,17 @@ body::after {
 			@media (max-width:$sm) {
 				height: 175px;
 			}
+		}
+
+		.docs-gallery-popup & {
+			background: none;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			gap: 30px;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto 1fr;
 		}
 	}
 
@@ -288,11 +313,25 @@ body::after {
 			padding: rem(47) rem(20);
 			justify-content: center;
 		}
+
+		.docs-gallery-popup & {
+			border: none;
+			padding: 0;
+			align-items: start;
+			gap: 30px;
+			padding: rem(0) rem(20);
+		}
 	}
 
 	// .popup__close-svg
 
-	&__close-svg {}
+	&__close-svg {
+		.docs-gallery-popup & {
+			use {
+				fill: #fff;
+			}
+		}
+	}
 
 	// .popup__video
 
@@ -300,7 +339,18 @@ body::after {
 
 	// .popup__title
 
-	&__title {}
+	&__title {
+		.docs-gallery-popup & {
+			color: #fff;
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 1;
+
+			@media (max-width:$md) {
+				font-size: 16px;
+			}
+		}
+	}
 
 	// .popup__subtitle
 
@@ -350,6 +400,11 @@ body::after {
 			@media (max-width:$sm) {
 				padding: rem(26) rem(20);
 			}
+		}
+
+		.docs-gallery-popup & {
+			padding: 0;
+			height: 100%;
 		}
 	}
 

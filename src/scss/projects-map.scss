@@ -37,6 +37,10 @@
          height: 22px;
       }
 
+      @media (max-width:$xxs) {
+         width: 220px;
+      }
+
       use {
          fill: #fff;
       }
@@ -80,11 +84,11 @@
    // .projects-map__body
 
    &__body {
-      position: relative;
+      position: absolute;
       width: 1920px;
       height: 960px;
-      bottom: 0;
-      left: 0;
+      // bottom: 0;
+      // left: 0;
       cursor: grab;
 
       &:active {
