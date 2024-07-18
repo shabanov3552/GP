@@ -102,10 +102,6 @@ body {
 	padding-right: var(--right-padding);
 	transition: all 0.3s ease 0s;
 
-	&.main-header {
-		// padding-right: var(--mp-right-padding);
-	}
-
 	._header-scroll & {
 		padding-right: var(--right-padding);
 	}

@@ -27,10 +27,6 @@ document.addEventListener("click", function (e) {
       }
       document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
    }
-   // if (!e.target.closest('.projects-map') && document.querySelector('.sidebar-catalog-open') && !e.target.closest('.js-open-sidebar-catalog')) {
-   //    bodyLockToggle();
-   //    document.documentElement.classList.remove("sidebar-catalog-open", "sidebar-sub-catalog-open");
-   // }
    // очистка input по клику на крестик
    if (e.target.closest('.form__clear-svg')) {
       let input = e.target.closest('.form__line').querySelector('.form__input') || e.target.closest('.form__line').querySelector('.form__txt');
@@ -45,36 +41,7 @@ document.addEventListener("click", function (e) {
    if (e.target.closest('textarea')) {
       txtarAutoHeight(e.target)
    }
-   // спрятать/показать input в личкабе
-   if (e.target.closest('.personal-data__change')) {
-      changeData(e.target)
-      e.preventDefault()
-   }
-   // смена текста кнопки в личкабе
-   if (e.target.closest('.order__more-btn')) {
-      let target = e.target.closest('.order__more-btn')
-      target.classList.contains('_spoller-active') ? target.innerHTML = 'Свернуть детали заказа' : target.innerHTML = 'Показать детали заказа';
-      e.preventDefault()
-   }
 });
-
-//#endregion
-
-//#region Перемещение модалки с фильтрами под .wrapper
-
-const filtersPopup = document.querySelector('#filters-more');
-
-if (filtersPopup) {
-   filtersPopup.remove();
-   document.querySelector('.popup-box').insertAdjacentElement("beforeend", filtersPopup);
-   getFilterColumns(filtersPopup);
-}
-
-function getFilterColumns(popup) {
-   const columns = popup.querySelectorAll('.filters__col');
-   const popupWrapper = popup.querySelector('.filters__wrapper');
-   columns.length > 1 ? popupWrapper.classList.add('many-cols') : null;
-}
 
 //#endregion
 
@@ -156,87 +123,6 @@ function txtarAutoHeight(target) {
 
 //#endregion
 
-//#region спрятать/показать input в личкабе
-
-function changeData(target) {
-   let el = target.closest('.personal-data__row')
-   el.classList.add('_active');
-   let submitBtn = el.querySelector('.personal-data__btn')
-   submitBtn.addEventListener("click", function (e) {
-      el.classList.remove('_active');
-      el.classList.add('show-msg');
-      setTimeout(() => {
-         el.classList.remove('show-msg');
-      }, 3000);
-   });
-   document.addEventListener('keydown', function (e) {
-      if (e.code === 'Escape' || e.code === 'Enter' || e.code === 'NumpadEnter') {
-         el.classList.remove('_active');
-         el.classList.add('show-msg');
-         setTimeout(() => {
-            el.classList.remove('show-msg')
-         }, 3000);
-      }
-   });
-}
-
-//#endregion
-
-//#region Добавление классов для кнопок на странице оформления при загрузке и обновлении сстраницы
-
-window.addEventListener("load", function (e) {
-   const target = document.querySelector('.radio-buttons');
-   if (target) {
-
-      const config = {
-         attributes: true,
-         childList: true,
-         subtree: true
-      };
-
-      function styleButtonChange() {
-         const pickUpPointButtons = document.querySelectorAll('.radio-buttons__inner button, .radio-buttons__inner .btn');
-
-         pickUpPointButtons.forEach(btn => {
-            btn.setAttribute('class', '')
-            btn.style = 'display: flex; justify-content:center; align-items: center; text-align: center;';
-            btn.classList.add('radio-buttons__btn', 'btn', 'btn_grey');
-         });
-      }
-      styleButtonChange();
-
-      const callback = function (mutationsList, observer) {
-         for (let mutation of mutationsList) {
-            if (mutation.type === 'childList') {
-               styleButtonChange();
-            }
-         }
-      };
-
-      const observer = new MutationObserver(callback);
-
-      observer.observe(target, config);
-   }
-});
-
-//#endregion
-
-//#region hover на ссылках в боковом каталоге
-
-const sidebarCatalogMenuChunk = document.querySelector('.sidebar-catalog__menu-chunk');
-if (sidebarCatalogMenuChunk !== null) {
-   const sidebarCatalogMenu = sidebarCatalogMenuChunk.querySelector('.sidebar-catalog__menu');
-   const sidebarRect = sidebarCatalogMenuChunk.querySelector('.sidebar-catalog__hover-rect')
-   sidebarCatalogMenuChunk.addEventListener('mouseover', (e) => {
-      let target = e.target.closest('.sidebar-catalog__link');
-      if (e.target.classList.contains('sidebar-catalog__link')) {
-         sidebarRect.style.bottom = `${sidebarCatalogMenu.offsetHeight - ((target.offsetTop + target.clientHeight) - sidebarCatalogMenu.scrollTop)}px`
-      }
-   })
-}
-
-//#endregion
-
 //#region Открыть/закрыть боковой каталог + Открытие закрытие подкатегорий в каталоге
 
 function sidebarCatalogActions(e) {
@@ -277,158 +163,6 @@ function sidebarCatalogActions(e) {
       e.preventDefault();
    }
 }
-
-//#endregion
-
-//#region Кнопка вверх и лого
-
-if (document.querySelector('.broadcast')) {
-
-   let buttonToTop = function (e) {
-      let btnTop = document.querySelector('.broadcast');
-      let scr_val = window.pageYOffset + document.documentElement.clientHeight;
-      let scrollHeight = Math.max(
-         document.body.scrollHeight, document.documentElement.scrollHeight,
-         document.body.offsetHeight, document.documentElement.offsetHeight,
-         document.body.clientHeight, document.documentElement.clientHeight
-      );
-      scr_val >= (scrollHeight - 50) ? btnTop.classList.add('_active') : btnTop.classList.remove('_active');
-   };
-   window.addEventListener('scroll', buttonToTop);
-}
-//#endregion
-
-//#region Плавающая линия для табов
-
-document.querySelectorAll(".float-line").forEach(e => {
-   floatLine(e)
-});
-
-function floatLine(node) {
-   if (!node) return
-
-   node.addEventListener("mouseover", (e) => {
-      if (e.target.classList.contains("float-line__item")) {
-         if (node.closest('.float-line__horizontal')) {
-            node.style.setProperty(
-               "--underline-offset-y",
-               `${e.target.offsetTop}px`
-            );
-            node.style.setProperty(
-               "--underline-height",
-               `${e.target.offsetHeight}px`
-            );
-         } else {
-            node.style.setProperty(
-               "--underline-width",
-               `${e.target.offsetWidth}px`
-            );
-            node.style.setProperty(
-               "--underline-offset-x",
-               `${e.target.offsetLeft}px`
-            );
-         }
-      }
-   });
-   node.addEventListener("mouseleave", () => {
-      if (node.closest('.float-line__horizontal')) {
-         node.style.setProperty("--underline-height", "0")
-      } else {
-         node.style.setProperty("--underline-width", "0")
-      }
-   });
-}
-
-//#endregion
-
-//#region Переключатель отображения плиток в каталоге
-
-const layout = document.querySelector('.js-layout');
-if (layout) {
-
-
-
-   if (localStorage.getItem('layout')) {
-      document.querySelector('.main-catalog__cards, .favorites__cards').classList.add('row');
-      layout.querySelector(".js-layout__row").classList.add('_active');
-      layout.querySelector(".js-layout__column").classList.remove('_active');
-   }
-
-
-   layout.addEventListener("click", function (e) {
-      let target = e.target;
-      let cards = document.querySelector('.main-catalog__cards, .favorites__cards')
-      let rowBtn = layout.querySelector(".js-layout__row")
-      let colBtn = layout.querySelector(".js-layout__column")
-
-
-
-      if (target.closest('.js-layout__column')) {
-         cards.classList.remove('row')
-         localStorage.removeItem('layout')
-      } else if (target.closest('.js-layout__row')) {
-         cards.classList.add('row')
-         localStorage.setItem("layout", 'row')
-      }
-      if (target.closest('.js-layout__row')) {
-         colBtn.classList.remove('_active')
-         rowBtn.classList.add('_active')
-      } else {
-         colBtn.classList.add('_active')
-         rowBtn.classList.remove('_active')
-      }
-   });
-}
-
-//#endregion
-
-//#region высота строк в сравнении 
-
-window.addEventListener("load", function () {
-   const dataName = Array.from(document.querySelectorAll('[data-name]'));
-   let names = [];
-   dataName.forEach(el => {
-      if (!names.includes(el.dataset.name)) {
-         names.push(el.dataset.name)
-      }
-   });
-   for (const name of names) {
-      setHeight(name)
-   }
-   function setHeight(name) {
-      const nodeName = document.querySelector(`[data-main=${name}]`);
-      const node = document.querySelectorAll(`[data-name=${name}]`);
-      let heights = []
-      heights.push(nodeName.scrollHeight);
-      node.forEach(el => {
-         heights.push(el.scrollHeight);
-      });
-      let maxHei = Math.max(...heights);
-      node.forEach(element => {
-         element.style.height = maxHei + 'px';
-      });
-      nodeName ? nodeName.style.height = maxHei + 'px' : null;
-   }
-   let btnChek = document.querySelector(".radio-inline input[type=\"radio\"]:checked");
-   if (btnChek) {
-      btnChek.closest('.radio-inline').classList.add('checked');
-   }
-});
-
-//#endregion
-
-//#region выбор всех чекбоксов
-
-// js-allCheck
-
-document.addEventListener('change', e => {
-   let target = e.target;
-   if (target.classList.contains('js-allCheck')) {
-      let table = target.closest('.merchant-cabinet__table')
-      let checkboxes = table.querySelectorAll('.merchant-cabinet__checkbox input');
-      target.checked ? checkboxes.forEach(e => e.checked = true) : checkboxes.forEach(e => e.checked = false);
-   }
-});
 
 //#endregion
 
@@ -493,87 +227,65 @@ function compareHeightLine(origEl, cloneEl, parentEl) {
 
 //#region Карта проектов перетаскивание
 
-const projectMaps = document.querySelectorAll('.projects-map__body');
-// window.addEventListener('resize', e => {
-//    projectMaps.forEach((mapBody) => {
-//       mapBody.style.top = `${0}px`
-//       mapBody.style.left = `${0}px`
-//    })
-// })
-projectMaps.forEach((mapBody) => {
-
-   mapBody.ondragstart = function () {
-      return false;
-   };
+document.querySelectorAll('.projects-map__body').forEach((mapBody) => {
+   mapBody.ondragstart = () => false; // Отключаем стандартное поведение drag-and-drop
 
    mapBody.addEventListener('pointerdown', (event) => {
-      let shiftX = event.clientX - mapBody.getBoundingClientRect().left;
-      let shiftY = event.clientY - mapBody.getBoundingClientRect().top;
+      // Определяем смещение курсора относительно верхнего левого угла элемента
+      const shiftX = event.clientX - mapBody.getBoundingClientRect().left;
+      const shiftY = event.clientY - mapBody.getBoundingClientRect().top;
 
-      mapBody.style.position = 'absolute';
-      // mapBody.style.zIndex = 1000;
-      // document.body.append(mapBody);
+      const navHeight = document.querySelector('.projects-map__navigation').clientHeight; // Высота навигационного меню
 
-      moveAt(event.clientX, event.clientY, event);
+      // Предварительные вычисления размеров окна и элемента
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      const mapWidth = mapBody.clientWidth;
+      const mapHeight = mapBody.clientHeight;
 
-      // переносит мяч на координаты (pageX, pageY),
-      // дополнительно учитывая изначальный сдвиг относительно указателя мыши
-      function moveAt(pageX, pageY, event) {
-         const nav = document.querySelector('.projects-map__navigation');
-         let top = pageY - shiftY;
-         let left = pageX - shiftX;
-         let right = (shiftX - pageX) - (mapBody.clientWidth - event.view.window.innerWidth);
-         let bottom = (shiftY - pageY) - (mapBody.clientHeight - event.view.window.innerHeight);
+      // Функция перемещения элемента на координаты pageX, pageY
+      const moveAt = (pageX, pageY) => {
+         let newTop = pageY - shiftY; // Новое значение top для элемента
+         let newLeft = pageX - shiftX; // Новое значение left для элемента
 
-         // Высота
-         // mapBody.style.top = `${top}px`
-         // mapBody.style.bottom = `${bottom}px`
-         // console.log(`top: ${top}px`);
-         // console.log(nav.clientHeight + top);
-         // console.log(`bottom: ${bottom}px`);
-
-         if (!(top >= (event.view.window.innerHeight - (mapBody.clientHeight + nav.clientHeight)))) {
-            mapBody.style.top = `${(event.view.window.innerHeight - (mapBody.clientHeight + nav.clientHeight))}px`
-
-            if (event.view.window.innerHeight > (mapBody.clientHeight + nav.clientHeight)) { mapBody.style.top = `${0}px` }
+         // Ограничиваем движение по вертикали
+         if (mapHeight + navHeight > windowHeight) {
+            // Если высота элемента больше высоты окна
+            newTop = Math.max(windowHeight - mapHeight - navHeight, Math.min(newTop, 0));
          } else {
-
-            if (top < 0) { mapBody.style.top = `${top}px` }
+            // Если высота элемента меньше или равна высоте окна
+            newTop = Math.max(0, Math.min(newTop, windowHeight - mapHeight - navHeight));
          }
 
-         // Ширина
-         // mapBody.style.left = `${left}px`
-         // mapBody.style.right = `${right}px`
-         // console.log(`left: ${left}px`);
-         // console.log(`right: ${right}px`);
-
-         if (left <= event.view.window.innerWidth - mapBody.clientWidth) {
-            mapBody.style.left = `${event.view.window.innerWidth - mapBody.clientWidth}px`
-
-            if (event.view.window.innerWidth > mapBody.clientWidth) { mapBody.style.left = `${0}px` }
+         // Ограничиваем движение по горизонтали
+         if (mapWidth > windowWidth) {
+            // Если ширина элемента больше ширины окна
+            newLeft = Math.max(windowWidth - mapWidth, Math.min(newLeft, 0));
          } else {
-
-            if (left < 0) { mapBody.style.left = `${left}px` }
+            // Если ширина элемента меньше или равна ширине окна
+            newLeft = Math.max(0, Math.min(newLeft, windowWidth - mapWidth));
          }
-      }
 
-      function onMouseMove(event) {
-         moveAt(event.clientX, event.clientY, event);
-         if (event.target === document.documentElement) {
-            document.removeEventListener('pointermove', onMouseMove);
-            mapBody.onmouseup = null;
-         }
-      }
+         // Устанавливаем новые координаты для элемента
+         mapBody.style.top = `${newTop}px`;
+         mapBody.style.left = `${newLeft}px`;
+      };
 
-      // передвигаем мяч при событии mousemove
-      document.addEventListener('pointermove', onMouseMove);
+      // Обработчик события перемещения указателя мыши
+      const onPointerMove = (event) => {
+         moveAt(event.clientX, event.clientY); // Перемещаем элемент при движении указателя мыши
+      };
 
-      // отпустить мяч, удалить ненужные обработчики
-      document.onpointerup = function () {
-         document.removeEventListener('pointermove', onMouseMove);
-         mapBody.onmouseup = null;
+      // Добавляем обработчик события перемещения указателя мыши
+      document.addEventListener('pointermove', onPointerMove);
+
+      // Обработчик события отпускания кнопки мыши
+      document.onpointerup = () => {
+         // Удаляем обработчик события перемещения указателя мыши
+         document.removeEventListener('pointermove', onPointerMove);
+         document.onpointerup = null; // Убираем обработчик события отпускания кнопки мыши
       };
    });
-})
+});
 
 //#endregion
