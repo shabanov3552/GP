@@ -184,6 +184,10 @@
    &__container {
       line-height: 144%;
 
+      img {
+         max-width: 100%;
+      }
+
       & :not(:last-child) {
          margin-bottom: rem(32);
 
@@ -601,6 +605,20 @@
       grid-template-columns: 24px 1fr;
       gap: 32px 40px;
 
+      &:last-child {
+         grid-template-columns: 1fr 24px;
+
+         svg {
+            grid-column: 2/3;
+            grid-row: 1/2;
+         }
+
+         span {
+            grid-column: 1/2;
+            grid-row: 1/2;
+         }
+      }
+
       @media (min-width:$md) {
          &:last-child {
             grid-template-columns: 1fr 24px;
@@ -628,16 +646,10 @@
       }
 
       span {
-         max-width: 280px;
          display: block;
-
-         @media (max-width:$md) {
-            max-width: 100%;
-         }
 
          @media (max-width:$sm) {
             padding: rem(0) rem(20);
-
          }
       }
    }
