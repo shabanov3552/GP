@@ -87,9 +87,13 @@
       position: absolute;
       width: 1920px;
       height: 960px;
-      // bottom: 0;
-      // left: 0;
+      transform: translateX(-50%);
+      left: 50%;
       cursor: grab;
+
+      @media (min-width:em(1921)) {
+         top: 100px;
+      }
 
       &:active {
          cursor: grabbing;

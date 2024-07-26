@@ -573,6 +573,22 @@
       justify-content: space-between;
       padding-right: 0;
       align-items: center;
+
+      @media (max-width:$xpc) {
+         padding-right: 0;
+      }
+
+      @media (max-width:$xl) {
+         padding-right: 0;
+      }
+
+      @media (max-width:$lg) {
+         padding-right: 0;
+      }
+
+      @media (max-width:$sm) {
+         padding-right: 0;
+      }
    }
 
    // .news-block-headline__title

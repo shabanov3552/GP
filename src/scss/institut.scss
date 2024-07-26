@@ -369,6 +369,18 @@
             margin-bottom: rem(25);
          }
       }
+
+      ul {
+         padding-left: rem(25);
+
+         li {
+            list-style-type: disc;
+
+            &:not(:last-child) {
+               margin-bottom: rem(20);
+            }
+         }
+      }
    }
 
    // .department__subtitle
