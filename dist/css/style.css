@@ -4226,7 +4226,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     max-width: 1900px
   }
   .projects-map__body {
-    top: 50px
+    top: 100px
   }
 }
 @media (max-width:106.24875em) {
