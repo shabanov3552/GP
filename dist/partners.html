@@ -7,15 +7,47 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240726155409" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240726234236" rel="stylesheet">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240726155409">
+	<link rel="stylesheet" href="css/style.min.css?_v=20240726234236">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
+	<style>
+		.preloader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 100000;
+			background-color: #fff;
+			transition: all 0.3s ease 2s;
+
+		}
+
+		.preloader .hide {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loaded body .preloader {
+			opacity: 0;
+			visibility: hidden;
+		}
+	</style>
+	<div class="preloader"><img src="img/loader.webp" alt=""></div>
+	<script>
+		if (window.location.pathname !== '/home.html') {
+			document.querySelector('.preloader').style.display = 'none';
+		}
+	</script>
 	<div class="wrapper ">
 		<header class="header" data-scroll="200">
 			<div class="header__container">
@@ -349,8 +381,8 @@
 		<!-- Спасибо -->
 
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240726155409" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20240726155409"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240726234236" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20240726234236"></script>
 </body>
 
 </html>

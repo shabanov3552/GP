@@ -206,6 +206,8 @@
 		font-size: 20px;
 		color: #1f60b8;
 		display: flex;
+		pointer-events: none;
+		visibility: hidden;
 
 		.main-header & {
 			color: #fff;
