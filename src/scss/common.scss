@@ -269,9 +269,9 @@
 
    &__month {
       font-weight: 400;
-      font-size: 20px;
       line-height: 130%;
       color: #fff;
+      font-size: 12px;
    }
 
    // .news-card__year
@@ -299,6 +299,7 @@
       color: #fff;
       flex: 1 1 auto;
       margin-bottom: rem(70);
+      overflow-wrap: anywhere;
 
       @media (max-width:$xl) {
          font-size: 20px;
@@ -892,7 +893,7 @@
       }
 
       span {
-         background: #000;
+         background: rgba(0, 0, 0, 0.7);
          padding: 9px 10px;
          -webkit-box-decoration-break: clone;
          box-decoration-break: clone;

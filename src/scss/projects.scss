@@ -188,6 +188,18 @@
          max-width: 100%;
       }
 
+      ul {
+         padding-left: rem(25);
+
+         li {
+            list-style-type: disc;
+
+            &:not(:last-child) {
+               margin-bottom: rem(20);
+            }
+         }
+      }
+
       & :not(:last-child) {
          margin-bottom: rem(32);
 
@@ -603,6 +615,7 @@
       line-height: 127%;
       display: grid;
       grid-template-columns: 24px 1fr;
+      grid-template-rows: 1fr auto;
       gap: 32px 40px;
 
       &:last-child {

@@ -847,7 +847,7 @@ body::after {
 .projects-header .breadcrumbs {
   padding-left: 1.25rem;
   padding-right: 1.875rem;
-  background: #000
+  background: rgba(0,0,0,.7)
 }
 .breadcrumbs__list {
   display: -webkit-box;
@@ -1102,9 +1102,9 @@ body::after {
 }
 .news-card__month {
   font-weight: 400;
-  font-size: 20px;
   line-height: 130%;
-  color: #fff
+  color: #fff;
+  font-size: 12px
 }
 .news-card__year {
   font-weight: 400;
@@ -1129,7 +1129,8 @@ body::after {
   -webkit-box-flex: 1;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  margin-bottom: 4.375rem
+  margin-bottom: 4.375rem;
+  overflow-wrap: anywhere
 }
 .news-card__name::before {
   content: "";
@@ -1388,7 +1389,7 @@ body::after {
   left: -5000%
 }
 .project-headline__title span {
-  background: #000;
+  background: rgba(0,0,0,.7);
   padding: 9px 10px;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -1977,7 +1978,7 @@ body::after {
   padding: 5.875rem 0;
   position: relative
 }
-.projects-block ~ .services-block {
+.projects-block + .services-block {
   padding-top: 0
 }
 .projects-block__header {
@@ -2121,7 +2122,7 @@ body::after {
 .projects-map__body {
   position: absolute;
   width: 1920px;
-  height: 960px;
+  height: 870px;
   -webkit-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
@@ -2149,7 +2150,10 @@ body::after {
   display: inline-block;
   position: absolute;
   z-index: 2;
-  cursor: pointer
+  cursor: pointer;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
 }
 .projects-map__point::before {
   content: "";
@@ -2393,6 +2397,15 @@ body::after {
 .pd-text__container img {
   max-width: 100%
 }
+.pd-text__container ul {
+  padding-left: 1.5625rem
+}
+.pd-text__container ul li {
+  list-style-type: disc
+}
+.pd-text__container ul li:not(:last-child) {
+  margin-bottom: 1.25rem
+}
 .pd-text__container :not(:last-child) {
   margin-bottom: 2rem
 }
@@ -2579,6 +2592,8 @@ body::after {
   display: grid;
   -ms-grid-columns: 24px 1fr;
   grid-template-columns: 24px 1fr;
+  -ms-grid-rows: 1fr auto;
+  grid-template-rows: 1fr auto;
   gap: 32px 40px
 }
 .other-projects__link:last-child {
@@ -5569,7 +5584,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     flex-direction: column
   }
   .projects-block__header {
-    gap: 13px
+    gap: 13px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start
   }
   .projects-block__slider {
     margin: 0 1.25rem;
