@@ -983,6 +983,10 @@
       align-items: center;
       gap: 13px;
 
+      @media (min-width:$xpc) {
+         padding-right: rem(170);
+      }
+
       svg {
          width: 24px;
          height: 12px;

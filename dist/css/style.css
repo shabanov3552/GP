@@ -2123,10 +2123,11 @@ body::after {
   position: absolute;
   width: 1920px;
   height: 870px;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
   left: 50%;
+  top: 50%;
   cursor: -webkit-grab;
   cursor: grab
 }
@@ -2596,31 +2597,10 @@ body::after {
   grid-template-rows: 1fr auto;
   gap: 32px 40px
 }
-.other-projects__link:last-child {
-  -ms-grid-columns: 1fr 24px;
-  grid-template-columns: 1fr 24px
-}
-.other-projects__link:last-child svg {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 1;
-  grid-column: 2/3;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2;
-  -webkit-transform: rotate(-180deg);
-  -ms-transform: rotate(-180deg);
-  transform: rotate(-180deg)
-}
-.other-projects__link:last-child span {
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 1;
-  grid-column: 1/2;
-  -ms-grid-row: 1;
-  -ms-grid-row-span: 1;
-  grid-row: 1/2
-}
 .other-projects__link img {
-  max-width: 100%
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
 }
 .other-projects__link span {
   display: block
@@ -4136,6 +4116,25 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     grid-template-columns: 1fr 24px;
     justify-items: end
   }
+  .other-projects__link:last-child svg {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
+    grid-column: 2/3;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2;
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg)
+  }
+  .other-projects__link:last-child span {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 1;
+    grid-column: 1/2;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
+    grid-row: 1/2
+  }
   .other-projects__link img {
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
@@ -4239,12 +4238,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item:not(.lg-zoomable).lg-co
     padding: 0 10rem
   }
 }
+@media (min-width:106.24875em) {
+  .page-headline__link {
+    padding-right: 10.625rem
+  }
+}
 @media (min-width:120.0625em) {
   .partners__container {
     max-width: 1900px
-  }
-  .projects-map__body {
-    top: 100px
   }
 }
 @media (max-width:106.24875em) {
