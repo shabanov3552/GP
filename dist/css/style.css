@@ -653,7 +653,7 @@ body::after {
   height: auto
 }
 .project-list .popup__main {
-  height: calc(100% - 200px)
+  height: calc(100% - 225px)
 }
 .popup-thanks .popup__main {
   height: auto;
@@ -1316,8 +1316,12 @@ body::after {
   padding-top: 0
 }
 .services__image-ibg {
-  height: 370px;
   margin-bottom: 3.125rem
+}
+.services__image-ibg img {
+  position: static;
+  -o-object-fit: contain;
+  object-fit: contain
 }
 .services__content h2 {
   font-weight: 600;
@@ -1615,6 +1619,9 @@ body::after {
 .search-result__list {
   margin-bottom: 5rem
 }
+.search-result__item {
+  position: relative
+}
 .search-result__item::marker {
   color: #1f60b8
 }
@@ -1623,6 +1630,12 @@ body::after {
 }
 .search-result__item b {
   font-weight: 600
+}
+.search-result__item-num {
+  position: absolute;
+  left: 6px;
+  top: 9px;
+  color: #1f60b8
 }
 .search-result__item-top {
   margin-bottom: .4375rem;
@@ -1634,7 +1647,8 @@ body::after {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  gap: 10px 58px
+  gap: 10px 58px;
+  padding-left: 1.5625rem
 }
 .search-result__link {
   font-weight: 400;
