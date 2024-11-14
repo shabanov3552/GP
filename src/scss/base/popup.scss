@@ -89,6 +89,10 @@ body::after {
 		.video-popup & {
 			max-width: 100%;
 		}
+
+		.showcase-modal & {
+			max-width: 862px;
+		}
 	}
 
 	// .popup__close
@@ -148,6 +152,18 @@ body::after {
 		.basket-empty & {
 			justify-content: flex-end;
 		}
+
+		.showcase-modal & {
+			padding: rem(54) rem(45);
+			padding-bottom: rem(38);
+			align-items: flex-start;
+			border: none;
+			gap: 25px;
+
+			@media (max-width:$md) {
+				padding: rem(20);
+			}
+		}
 	}
 
 	// .popup__video
@@ -194,8 +210,22 @@ body::after {
 			@extend %hidescroll;
 		}
 
+
 		@media (max-width:$md) {
-			padding: 20px;
+			padding: rem(20);
+		}
+
+		.showcase-modal & {
+			@media (min-width:$md) {
+				padding-left: rem(45);
+				padding-top: 0;
+				padding-bottom: rem(150);
+			}
+
+			@media (max-width:$md) {
+				padding-top: 0;
+				padding-bottom: rem(500);
+			}
 		}
 	}
 

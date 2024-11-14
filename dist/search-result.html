@@ -7,9 +7,9 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20240816112504" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap&_v=20241114212527" rel="stylesheet">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20240816112504">
+	<link rel="stylesheet" href="css/style.min.css?_v=20241114212527">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,11 +102,16 @@
 					<use xlink:href="img/icons/icons.svg#icon_search"></use>
 				</svg>
 			</button>
-			<button type="button" class="right-sidebar__btn js-open-sidebar-catalog">
+			<button type="button" class="right-sidebar__btn right-sidebar__btn_first-child js-open-sidebar-catalog">
 				<img src="img/icons/right-sidebar-logo.svg" alt="">
 				<div class="right-sidebar__text">Карта проектов</div>
 				<img src="img/icons/right-sidebar-arrow.svg" alt="">
 			</button>
+			<a href="" class="right-sidebar__btn right-sidebar__btn_last-child">
+				<img src="img/icons/right-sidebar-logo-2.svg" alt="">
+				<div class="right-sidebar__text">Витрина проектов</div>
+				<img src="img/icons/right-sidebar-arrow.svg" alt="">
+			</a>
 		</div>
 		<main class="page">
 			<div class="page-headline">
@@ -143,24 +148,24 @@
 				<div class="search-result__container">
 					<div class="search-result__list">
 						<div class="search-result__item">
-							<div class="search-result__item-num">1.</div>
 							<div class="search-result__item-top">
+								<div class="search-result__item-num">1.</div>
 								<a href="" class="search-result__link"><b>Енисейск</b>. Возрождение.</a>
 								<div class="search-result__tag">Новость</div>
 							</div>
 							<div class="search-result__item-text">24 мая в Доме кино состоялась творческая встреча, посвященная научно-исследовательской работе "Проект регенерации центральной части г. Енисейска". Цель проекта регенерации …</div>
 						</div>
 						<div class="search-result__item">
-							<div class="search-result__item-num">2.</div>
 							<div class="search-result__item-top">
-								<a href="" class="search-result__link">Мужская гимназия, г. <b>Енисейск</b></a>
+								<div class="search-result__item-num">2.</div>
+								<a href="" class="search-result__link">Положительное <b>заключение</b> экспертизы: строительство лаборатории высокого уровня биологической безопасности для оперативной расшифровки (24 часа) и изучения ... </a>
 								<div class="search-result__tag">Проект</div>
 							</div>
 							<div class="search-result__item-text">Здание, где в сентябре 1913 года выступал во время сибирской экспедиции норвежский полярный исследователь Фритьоф Нансен. Здесь в мужской гимназии в 1915-1917 гг. учился …</div>
 						</div>
 						<div class="search-result__item">
-							<div class="search-result__item-num">3.</div>
 							<div class="search-result__item-top">
+								<div class="search-result__item-num">33.</div>
 								<a href="" class="search-result__link">Положительное заключение Главгосэкспертизы России</a>
 								<div class="search-result__tag">Новость</div>
 							</div>
@@ -429,10 +434,82 @@
 			</div>
 		</div>
 		<!-- Спасибо -->
-
+		<!-- Модалка превью проекта -->
+		<div id="showcase-modal" aria-hidden="true" class="popup showcase-modal">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="popup__header">
+						<div class="showcase-modal__title">
+							Библиотека в п. Луговской, Тугулымского района, Свердловской области
+						</div>
+						<button data-close type="button" class="popup__close">
+							<svg class="popup__close-svg">
+								<use xlink:href="img/icons/icons.svg#icon_close-modal"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="popup__main">
+						<div class="showcase-modal__image-ibg"><img src="img/proj-det-1.webp" alt=""></div>
+						<div class="showcase-modal__buttons">
+							<a href="" class="showcase-modal__link">
+								<span>витрина проекта</span>
+								<svg class="">
+									<use xlink:href="img/icons/icons.svg#arrow-right"></use>
+								</svg>
+							</a>
+							<a href="" class="showcase-modal__link">
+								<span>смотреть в портфолио</span>
+								<svg class="">
+									<use xlink:href="img/icons/icons.svg#arrow-right"></use>
+								</svg>
+							</a>
+						</div>
+						<div class="showcase-modal__content">
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Наименование объекта</div>
+								<div class="showcase-modal__value">Библиотека в п. Луговской, Тугулымского района, Свердловской области</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Адрес объекта:</div>
+								<div class="showcase-modal__value">Свердловская область, Тугулымский городской округ, п. Луговской, ул. Октябрьская, № 16а</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Функциональное назначение:</div>
+								<div class="showcase-modal__value">[02.01.001.002] Образование, наука, культура, искусство и религия \ Культура, искусство и история \ Библиотеки и архивы \ Здание библиотеки</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Мощность объекта:</div>
+								<div class="showcase-modal__value">Объем фондов, ед.: 15000</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Заключения экспертизы:</div>
+								<div class="showcase-modal__value">66-1-1-3-023240-2020</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Застройщик:</div>
+								<div class="showcase-modal__value">Муниципальное казенное учреждение культуры "Централизованная библиотечная система Тугулымского городского округа" (ИНН: 6655005804)</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Общая стоимость по ССР, тыс. руб.:</div>
+								<div class="showcase-modal__value">Сведения отсутствуют</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Стоимость 1м2, тыс. руб.</div>
+								<div class="showcase-modal__value">Сведения отсутствуют</div>
+							</div>
+							<div class="showcase-modal__row">
+								<div class="showcase-modal__name">Стоимость основного параметра, тыс. руб.</div>
+								<div class="showcase-modal__value">Сведения отсутствуют</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Модалка превью проекта -->
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20240816112504" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="js/app.min.js?_v=20240816112504"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js?_v=20241114212527" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/app.min.js?_v=20241114212527"></script>
 </body>
 
 </html>

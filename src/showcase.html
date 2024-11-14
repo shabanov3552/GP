@@ -1,0 +1,82 @@
+@@include('html/_header.htm',{
+"title":"Витрина проектов",
+"modClass":""
+})
+<main class="page">
+   @@include('html/_page-headline.htm',{
+   "title": "Витрина проектов"
+   })
+   <div class="filters-block">
+      <div class="filters-block__container">
+         <form action="" class="filters-block__form form" data-one-select>
+            <div class="form__line">
+               <select name="" data-class-modif="filters-block">
+                  <option value selected data-show>Функц. назначение</option>
+                  <option value="1">Пункт №1</option>
+                  <option value="2">Пункт №2</option>
+                  <option value="3">Пункт №3</option>
+               </select>
+            </div>
+            <div class="form__line">
+               <select name="" data-class-modif="">
+                  <option value selected data-show>Адрес</option>
+                  <option value="1">Пункт №1</option>
+                  <option value="2">Пункт №2</option>
+                  <option value="3">Пункт №3</option>
+               </select>
+            </div>
+            <div class="form__line">
+               <label for="" class="form__label">Название</label>
+               <input id="" type="text" name="" class="form__input">
+               <svg class="form__clear-svg">
+                  <use xlink:href="img/icons/icons.svg#input_clear"></use>
+               </svg>
+            </div>
+            <div class="form__line">
+               <select name="" data-class-modif="">
+                  <option value selected data-show>Застройщик</option>
+                  <option value="1">Пункт №1</option>
+                  <option value="2">Пункт №2</option>
+                  <option value="3">Пункт №3</option>
+               </select>
+            </div>
+            <div class="form__line">
+               <select name="" data-class-modif="">
+                  <option value selected data-show>Сейсм. активность</option>
+                  <option value="1">Пункт №1</option>
+                  <option value="2">Пункт №2</option>
+                  <option value="3">Пункт №3</option>
+               </select>
+            </div>
+         </form>
+      </div>
+   </div>
+   <div class="showcase-main">
+      <div class="showcase-main__container">
+         <div class="showcase-main__grid">
+            <div class="showcase-main__card">
+               <div class="showcase-main__card-ibg"><img src="@img/proj-det-1.png" alt=""></div>
+               <button type="button" class="showcase-main__card-name" data-popup="#showcase-modal">Набережная р. Енисей им. И. Ярыгина</button>
+            </div>
+            <div class="showcase-main__card">
+               <div class="showcase-main__card-ibg"><img src="@img/proj-det-2.png" alt=""></div>
+               <button type="button" class="showcase-main__card-name" data-popup="#showcase-modal">Благоустройство острова Татышев</button>
+            </div>
+            <div class="showcase-main__card">
+               <div class="showcase-main__card-ibg"><img src="@img/proj-det-3.png" alt=""></div>
+               <button type="button" class="showcase-main__card-name" data-popup="#showcase-modal">Мариинская женская гимназия</button>
+            </div>
+            <div class="showcase-main__card">
+               <div class="showcase-main__card-ibg"><img src="@img/proj-det-4.png" alt=""></div>
+               <button type="button" class="showcase-main__card-name" data-popup="#showcase-modal">Многофункциональный спортивный центр</button>
+            </div>
+            <div class="showcase-main__card">
+               <div class="showcase-main__card-ibg"><img src="@img/proj-det-5.png" alt=""></div>
+               <button type="button" class="showcase-main__card-name" data-popup="#showcase-modal">Мариинская женская гимназия</button>
+            </div>
+         </div>
+         @@include('html/_pagging.htm',{})
+      </div>
+   </div>
+</main>
+@@include('html/_footer.htm',{})

@@ -139,7 +139,6 @@ const pointTippy = document.querySelectorAll('.projects-map__point');
 
 pointTippy.forEach(e => {
    const node = e.querySelector('.pm-tippy');
-   console.log(e);
    node.style.display = 'block';
 
    e = tippy(e, {

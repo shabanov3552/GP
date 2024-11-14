@@ -18,7 +18,7 @@
    &__top {
       display: grid;
       gap: 40px;
-      grid-template-columns: auto 1fr;
+      grid-template-columns: auto 1fr auto;
       align-items: start;
 
       @media (max-width:$xxl) {
@@ -56,6 +56,26 @@
 
       @media (max-width:$lg) {
          font-size: 20px;
+      }
+   }
+
+   // .project-detail__link
+
+   &__link {
+      font-weight: 600;
+      font-size: 20px;
+      color: #1f60b8;
+   }
+
+   // .project-detail__link-arrow
+
+   &__link-arrow {
+      width: 24px;
+      height: 12px;
+      margin-left: rem(17);
+
+      use {
+         fill: #1f60b8;
       }
    }
 }
