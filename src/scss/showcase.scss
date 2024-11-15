@@ -2,6 +2,7 @@
    background: #efefef;
    padding-top: rem(28);
    padding-bottom: rem(24);
+
    // .filters-block__container
 
    &__container {}
@@ -13,21 +14,6 @@
       border-radius: 0;
       padding: 0;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 24px;
-
-      @media (max-width:$xpc) {
-         grid-template-columns: repeat(3, 1fr);
-      }
-
-      @media (max-width:$xl) {
-         grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (max-width:$md) {
-         grid-template-columns: 1fr;
-         gap: 25px;
-      }
 
       .select__title {
          background: transparent;
@@ -38,6 +24,29 @@
       }
 
       .form {
+
+         // .form__wrapper
+
+         &__wrapper {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-bottom: rem(15);
+
+            @media (max-width:$xpc) {
+               grid-template-columns: repeat(3, 1fr);
+            }
+
+            @media (max-width:$xl) {
+               grid-template-columns: repeat(2, 1fr);
+            }
+
+            @media (max-width:$md) {
+               grid-template-columns: 1fr;
+               gap: 25px;
+            }
+         }
+
          // .form__line
 
          &__line {
@@ -61,6 +70,97 @@
          // .form__clear-svg
 
          &__clear-svg {}
+
+         // .form__button
+
+         &__button {
+            justify-self: end;
+            width: auto;
+         }
+      }
+   }
+
+   .dropdown {
+      &._dd-active {
+         z-index: 10;
+      }
+
+      // .dropdown__button
+
+      &__button {
+         height: 100%;
+         border-bottom: 2px solid #7c7c7c;
+         padding: rem(11) 0;
+         padding-left: rem(16);
+      }
+
+      // .dropdown__block
+
+      &__block {
+         display: grid;
+         gap: 5px;
+         border-radius: 0 0 4px 4px;
+         background-color: #fff;
+         border: 1px solid #d9d9d9;
+         border-top: 0;
+         padding: 10px 0px 5px 0px;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+         min-width: 100%;
+      }
+   }
+
+   .radio {
+      align-items: center;
+      padding: rem(0) rem(10);
+
+      &:hover {
+         background: #d9d9d9;
+      }
+
+      // .radio__input
+
+      &__input {}
+
+      // .radio__chunk
+
+      &__chunk {
+         width: 16px;
+         height: 16px;
+         flex: 0 0 16px;
+
+         &::before {
+            width: 8px;
+            height: 8px;
+         }
+      }
+
+      // .radio__text
+
+      &__text {
+         font-size: 16px;
+      }
+   }
+
+   .checkbox {
+      align-items: center;
+      padding: rem(0) rem(10);
+
+      &:hover {
+         background: #d9d9d9;
+      }
+
+      // .checkbox__input
+
+      &__input {}
+
+      // .checkbox__chunk
+
+      &__chunk {}
+
+      // .checkbox__text
+
+      &__text {
+         font-size: 16px;
       }
    }
 }

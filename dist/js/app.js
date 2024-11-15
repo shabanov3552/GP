@@ -13918,6 +13918,14 @@ PERFORMANCE OF THIS SOFTWARE.
         function compareHeightLine(origEl, cloneEl, parentEl) {
             if (origEl.offsetHeight > cloneEl.offsetHeight) parentEl.style.height = "auto"; else parentEl.style.height = null;
         }
+        document.addEventListener("beforePopupOpen", (e => {
+            const selector = e.detail.popup.targetOpen.selector;
+            if (selector === "#showcase-modal") {
+                const popupHeader = document.querySelector(`${selector} .popup__header`);
+                const popupMain = document.querySelector(`${selector} .popup__main`);
+                popupMain.style.height = `calc(100% - ${popupHeader.offsetHeight}px`;
+            }
+        }));
         document.querySelectorAll(".projects-map__body").forEach((mapBody => {
             mapBody.ondragstart = () => false;
             mapBody.addEventListener("pointerdown", (event => {

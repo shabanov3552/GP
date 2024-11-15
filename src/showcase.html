@@ -9,45 +9,68 @@
    <div class="filters-block">
       <div class="filters-block__container">
          <form action="" class="filters-block__form form" data-one-select>
-            <div class="form__line">
-               <select name="" data-class-modif="filters-block">
-                  <option value selected data-show>Функц. назначение</option>
-                  <option value="1">Пункт №1</option>
-                  <option value="2">Пункт №2</option>
-                  <option value="3">Пункт №3</option>
-               </select>
+            <div class="form__wrapper">
+               <div class="dropdown" data-dropdown>
+                  <a href="" class="dropdown__button" data-dropdown-button>Функц. назначение</a>
+                  <div class="dropdown__block">
+                     <label class="radio">
+                        <input class="radio__input" type="radio" value="1" name="option">
+                        <div class="radio__chunk"></div>
+                        <span class="radio__text">Текст1</span>
+                     </label>
+                     <label class="radio">
+                        <input class="radio__input" type="radio" value="2" name="option">
+                        <div class="radio__chunk"></div>
+                        <span class="radio__text">Текст2</span>
+                     </label>
+                  </div>
+               </div>
+               <div class="form__line">
+                  <label for="" class="form__label">Адрес</label>
+                  <input id="" type="text" name="" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="form__line">
+                  <label for="" class="form__label">Название</label>
+                  <input id="" type="text" name="" class="form__input">
+                  <svg class="form__clear-svg">
+                     <use xlink:href="img/icons/icons.svg#input_clear"></use>
+                  </svg>
+               </div>
+               <div class="dropdown" data-dropdown>
+                  <a href="" class="dropdown__button" data-dropdown-button>Застройщик</a>
+                  <div class="dropdown__block">
+                     <label class="checkbox">
+                        <input class="checkbox__input" type="checkbox" name="" value="">
+                        <div class="checkbox__chunk"></div>
+                        <span class="checkbox__text">Пункт 1</span>
+                     </label>
+                     <label class="checkbox">
+                        <input class="checkbox__input" type="checkbox" name="" value="">
+                        <div class="checkbox__chunk"></div>
+                        <span class="checkbox__text">Пункт 2</span>
+                     </label>
+                  </div>
+               </div>
+               <div class="dropdown" data-dropdown>
+                  <a href="" class="dropdown__button" data-dropdown-button>Сейсм. активность</a>
+                  <div class="dropdown__block">
+                     <label class="checkbox">
+                        <input class="checkbox__input" type="checkbox" name="" value="">
+                        <div class="checkbox__chunk"></div>
+                        <span class="checkbox__text">Пункт 1</span>
+                     </label>
+                     <label class="checkbox">
+                        <input class="checkbox__input" type="checkbox" name="" value="">
+                        <div class="checkbox__chunk"></div>
+                        <span class="checkbox__text">Пункт 2</span>
+                     </label>
+                  </div>
+               </div>
             </div>
-            <div class="form__line">
-               <select name="" data-class-modif="">
-                  <option value selected data-show>Адрес</option>
-                  <option value="1">Пункт №1</option>
-                  <option value="2">Пункт №2</option>
-                  <option value="3">Пункт №3</option>
-               </select>
-            </div>
-            <div class="form__line">
-               <label for="" class="form__label">Название</label>
-               <input id="" type="text" name="" class="form__input">
-               <svg class="form__clear-svg">
-                  <use xlink:href="img/icons/icons.svg#input_clear"></use>
-               </svg>
-            </div>
-            <div class="form__line">
-               <select name="" data-class-modif="">
-                  <option value selected data-show>Застройщик</option>
-                  <option value="1">Пункт №1</option>
-                  <option value="2">Пункт №2</option>
-                  <option value="3">Пункт №3</option>
-               </select>
-            </div>
-            <div class="form__line">
-               <select name="" data-class-modif="">
-                  <option value selected data-show>Сейсм. активность</option>
-                  <option value="1">Пункт №1</option>
-                  <option value="2">Пункт №2</option>
-                  <option value="3">Пункт №3</option>
-               </select>
-            </div>
+            <button type="reset" class="form__button">Сбросить</button>
          </form>
       </div>
    </div>

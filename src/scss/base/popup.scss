@@ -216,15 +216,15 @@ body::after {
 		}
 
 		.showcase-modal & {
+			padding-bottom: rem(100);
+
 			@media (min-width:$md) {
 				padding-left: rem(45);
 				padding-top: 0;
-				padding-bottom: rem(150);
 			}
 
 			@media (max-width:$md) {
 				padding-top: 0;
-				padding-bottom: rem(500);
 			}
 		}
 	}

@@ -132,6 +132,19 @@ function compareHeightLine(origEl, cloneEl, parentEl) {
 }
 
 //#endregion
+document.addEventListener('beforePopupOpen', e => {
+   const selector = e.detail.popup.targetOpen.selector
+
+   if (selector === '#showcase-modal') {
+      const popupHeader = document.querySelector(`${selector} .popup__header`);
+      const popupMain = document.querySelector(`${selector} .popup__main`);
+
+      popupMain.style.height = `calc(100% - ${popupHeader.offsetHeight}px`
+   }
+})
+//#region высота заголовка мадалки витрины
+
+//#endregion
 
 //#region Карта проектов перетаскивание
 
